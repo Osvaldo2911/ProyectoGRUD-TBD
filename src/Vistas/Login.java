@@ -49,6 +49,7 @@ public class Login extends javax.swing.JFrame {
         jp_background_usuario = new javax.swing.JPanel();
         jtf_Usuario = new javax.swing.JTextField();
         lbl_registro = new javax.swing.JLabel();
+        lbl_mensajeInicio = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
@@ -88,6 +89,7 @@ public class Login extends javax.swing.JFrame {
         lbl_olvideContraseña.setForeground(new java.awt.Color(20, 111, 246));
         lbl_olvideContraseña.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_olvideContraseña.setText("Olvide mi contraseña");
+        lbl_olvideContraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_olvideContraseña.setName("lbl_olvideContraseña"); // NOI18N
         lbl_olvideContraseña.setNextFocusableComponent(lbl_registro);
         lbl_olvideContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -123,6 +125,11 @@ public class Login extends javax.swing.JFrame {
         jtf_Contraseña.setBorder(null);
         jtf_Contraseña.setName("jtf_usuario"); // NOI18N
         jtf_Contraseña.setSelectionEnd(10);
+        jtf_Contraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtf_ContraseñaFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_backgroun_passwordLayout = new javax.swing.GroupLayout(jp_backgroun_password);
         jp_backgroun_password.setLayout(jp_backgroun_passwordLayout);
@@ -146,6 +153,11 @@ public class Login extends javax.swing.JFrame {
         jtf_Usuario.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_Usuario.setBorder(null);
         jtf_Usuario.setName("jtf_usuario"); // NOI18N
+        jtf_Usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_UsuarioKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_background_usuarioLayout = new javax.swing.GroupLayout(jp_background_usuario);
         jp_background_usuario.setLayout(jp_background_usuarioLayout);
@@ -166,6 +178,7 @@ public class Login extends javax.swing.JFrame {
         lbl_registro.setForeground(new java.awt.Color(20, 111, 246));
         lbl_registro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_registro.setText("Registrate");
+        lbl_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_registro.setName("lbl_Registro"); // NOI18N
         lbl_registro.setNextFocusableComponent(jtf_Usuario);
         lbl_registro.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -188,49 +201,55 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        lbl_mensajeInicio.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout jp_loginLayout = new javax.swing.GroupLayout(jp_login);
         jp_login.setLayout(jp_loginLayout);
         jp_loginLayout.setHorizontalGroup(
             jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_loginLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_ImagenLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Iniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_iniciarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jp_loginLayout.createSequentialGroup()
-                        .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jp_backgroun_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_background_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lbl_ImagenLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addComponent(lbl_iniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_Iniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_loginLayout.createSequentialGroup()
+                            .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lbl_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jp_backgroun_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_background_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_mensajeInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
         jp_loginLayout.setVerticalGroup(
             jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_loginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addComponent(lbl_iniciarSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(lbl_ImagenLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(jp_background_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp_backgroun_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_registro, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50))
+                .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_registro, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_mensajeInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jp_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jp_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,6 +299,25 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lbl_registroMouseClicked
 
+    private void jtf_UsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioKeyTyped
+    int key = evt.getKeyChar();
+    
+    boolean numeros = key >= 48 && key <= 57;
+    boolean mayusculas = key >= 65 && key <= 90;
+    boolean minusculas = key >= 97 && key <= 122;
+    boolean espacio = key == 32;
+            
+     if (!(minusculas || mayusculas || espacio||numeros))
+    {
+        evt.consume();
+    }
+    
+    }//GEN-LAST:event_jtf_UsuarioKeyTyped
+
+    private void jtf_ContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_ContraseñaFocusGained
+        
+    }//GEN-LAST:event_jtf_ContraseñaFocusGained
+
     /**
      * @param args the command line arguments
      */
@@ -310,6 +348,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_Usuario;
     private javax.swing.JLabel lbl_ImagenLogin;
     private javax.swing.JLabel lbl_iniciarSesion;
+    private javax.swing.JLabel lbl_mensajeInicio;
     private javax.swing.JLabel lbl_olvideContraseña;
     private javax.swing.JLabel lbl_registro;
     // End of variables declaration//GEN-END:variables

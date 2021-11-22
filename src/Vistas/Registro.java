@@ -307,22 +307,20 @@ public class Registro extends javax.swing.JFrame {
             jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_RegistroLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_RegistroLayout.createSequentialGroup()
-                        .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbl_inicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lbl_Registrate, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_ImagenRegistrto, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jp_RegistroLayout.createSequentialGroup()
-                        .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_mensajeRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jp_backgroun_passwordR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jp_backgroun_passwordR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jp_background_usuarioR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 2, Short.MAX_VALUE)))
-                .addGap(10, 10, 10)
+                .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_mensajeRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jp_RegistroLayout.createSequentialGroup()
+                            .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lbl_inicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbl_Registrate, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                        .addComponent(lbl_ImagenRegistrto, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                        .addComponent(btn_Registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_backgroun_passwordR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_backgroun_passwordR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_background_usuarioR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(10, 12, Short.MAX_VALUE)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_IndicadorUser, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_indicadorContra)
@@ -437,7 +435,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_olvideContraseñaFocusGained
 
     private void jtf_UsuarioRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras y números</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras<br>y números</center></html>");
         lbl_mensajeRegistro.setVisible(true);
 
         if (jtf_UsuarioR.getText().length() >= 6) {
@@ -465,7 +463,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_UsuarioRFocusLost
 
     private void jpf_ContraseñaRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras, números y simbolos</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras<br> números y simbolos</center></html>");
         lbl_mensajeRegistro.setVisible(true);
 
         if (jpf_ContraseñaR.getPassword().length >= 8) {
@@ -486,7 +484,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jpf_ContraseñaRFocusLost
 
     private void jpf_ContraseñaRConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Ingresa nuevamente tu contraseña</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ingresa nuevamente tu contraseña&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></html>");
         lbl_mensajeRegistro.setVisible(true);
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusGained
 

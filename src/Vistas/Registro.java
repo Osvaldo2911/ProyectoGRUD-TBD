@@ -148,6 +148,12 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         jpf_ContraseñaR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jpf_ContraseñaRKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jpf_ContraseñaRKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jpf_ContraseñaRKeyTyped(evt);
             }
@@ -524,7 +530,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_UsuarioRKeyPressed
 
     private void jtf_UsuarioRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyReleased
-            if (jtf_UsuarioR.getText().length() >= 6) {
+        if (jtf_UsuarioR.getText().length() >= 6) {
             lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
             lbl_IndicadorUser.setVisible(true);
         } else if (jtf_UsuarioR.getText().equals("")) {
@@ -534,6 +540,32 @@ public class Registro extends javax.swing.JFrame {
             lbl_IndicadorUser.setVisible(true);
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyReleased
+
+    private void jpf_ContraseñaRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyPressed
+        if (jpf_ContraseñaR.getPassword().length >= 8) {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContra.setVisible(true);
+
+        } else if (jpf_ContraseñaR.getPassword().length == 0) {
+            lbl_indicadorContra.setVisible(false);
+        } else {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_indicadorContra.setVisible(true);
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRKeyPressed
+
+    private void jpf_ContraseñaRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyReleased
+        if (jpf_ContraseñaR.getPassword().length >= 8) {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContra.setVisible(true);
+
+        } else if (jpf_ContraseñaR.getPassword().length == 0) {
+            lbl_indicadorContra.setVisible(false);
+        } else {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_indicadorContra.setVisible(true);
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRKeyReleased
 
     /**
      * @param args the command line arguments

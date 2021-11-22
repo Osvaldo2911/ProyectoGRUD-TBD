@@ -387,7 +387,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jpf_ContraseñaRConfirmar" min="-2" pref="250" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="lbl_IndicadorContraConfirmar" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_visualizarContraConfirmar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -396,7 +396,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lbl_IndicadorContraConfirmar" max="32767" attributes="0"/>
+                              <Component id="lbl_visualizarContraConfirmar" max="32767" attributes="0"/>
                               <Component id="jpf_ContraseñaRConfirmar" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -405,7 +405,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="lbl_IndicadorContraConfirmar">
+                <Component class="javax.swing.JLabel" name="lbl_visualizarContraConfirmar">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Recursos/view.png"/>
@@ -427,6 +427,8 @@
                   <Events>
                     <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jpf_Contrase&#xf1;aRConfirmarFocusGained"/>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jpf_Contrase&#xf1;aRConfirmarFocusLost"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jpf_Contrase&#xf1;aRConfirmarKeyPressed"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jpf_Contrase&#xf1;aRConfirmarKeyReleased"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jpf_Contrase&#xf1;aRConfirmarKeyTyped"/>
                   </Events>
                 </Component>

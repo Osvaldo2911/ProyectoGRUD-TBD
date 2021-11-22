@@ -51,7 +51,7 @@ public class Registro extends javax.swing.JFrame {
         jtf_UsuarioR = new javax.swing.JTextField();
         lbl_inicioSesion = new javax.swing.JLabel();
         jp_backgroun_passwordR1 = new javax.swing.JPanel();
-        lbl_IndicadorContraConfirmar = new javax.swing.JLabel();
+        lbl_visualizarContraConfirmar = new javax.swing.JLabel();
         jpf_ContraseñaRConfirmar = new javax.swing.JPasswordField();
         lbl_mensajeRegistro = new javax.swing.JLabel();
         lbl_indicadorContra = new javax.swing.JLabel();
@@ -248,7 +248,7 @@ public class Registro extends javax.swing.JFrame {
 
         jp_backgroun_passwordR1.setBackground(new java.awt.Color(235, 235, 235));
 
-        lbl_IndicadorContraConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+        lbl_visualizarContraConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
 
         jpf_ContraseñaRConfirmar.setBackground(new java.awt.Color(235, 235, 235));
         jpf_ContraseñaRConfirmar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -262,6 +262,12 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         jpf_ContraseñaRConfirmar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jpf_ContraseñaRConfirmarKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jpf_ContraseñaRConfirmarKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jpf_ContraseñaRConfirmarKeyTyped(evt);
             }
@@ -275,14 +281,14 @@ public class Registro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jpf_ContraseñaRConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(lbl_IndicadorContraConfirmar)
+                .addComponent(lbl_visualizarContraConfirmar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_backgroun_passwordR1Layout.setVerticalGroup(
             jp_backgroun_passwordR1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_backgroun_passwordR1Layout.createSequentialGroup()
                 .addGroup(jp_backgroun_passwordR1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_IndicadorContraConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_visualizarContraConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpf_ContraseñaRConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
@@ -435,7 +441,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_olvideContraseñaFocusGained
 
     private void jtf_UsuarioRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras<br>y números</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras y números</center></html>");
         lbl_mensajeRegistro.setVisible(true);
 
         if (jtf_UsuarioR.getText().length() >= 6) {
@@ -451,7 +457,7 @@ public class Registro extends javax.swing.JFrame {
         lbl_indicadorContra.setVisible(false);
         lbl_indicadorContraConfirmar.setVisible(false);
         lbl_visualizarContra.setVisible(false);
-        lbl_IndicadorContraConfirmar.setVisible(false);
+        lbl_visualizarContraConfirmar.setVisible(false);
 
         //lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
     }//GEN-LAST:event_jtf_UsuarioRFocusGained
@@ -463,7 +469,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_UsuarioRFocusLost
 
     private void jpf_ContraseñaRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras<br> números y simbolos</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras, números y simbolos</center></html>");
         lbl_mensajeRegistro.setVisible(true);
 
         if (jpf_ContraseñaR.getPassword().length >= 8) {
@@ -476,20 +482,38 @@ public class Registro extends javax.swing.JFrame {
             lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
             lbl_indicadorContra.setVisible(true);
         }
+        lbl_visualizarContra.setVisible(true);
+        lbl_visualizarContraConfirmar.setVisible(false);
     }//GEN-LAST:event_jpf_ContraseñaRFocusGained
 
     private void jpf_ContraseñaRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRFocusLost
         lbl_mensajeRegistro.setVisible(false);
         lbl_indicadorContra.setVisible(false);
+        lbl_visualizarContra.setVisible(false);
     }//GEN-LAST:event_jpf_ContraseñaRFocusLost
 
     private void jpf_ContraseñaRConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarFocusGained
-        lbl_mensajeRegistro.setText("<html><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ingresa nuevamente tu contraseña&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Ingresa nuevamente tu contraseña</center></html>");
         lbl_mensajeRegistro.setVisible(true);
+
+        if (jpf_ContraseñaRConfirmar.getPassword().length >= 8) {
+            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContraConfirmar.setVisible(true);
+
+        } else if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
+            lbl_indicadorContraConfirmar.setVisible(false);
+        } else {
+            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_indicadorContraConfirmar.setVisible(true);
+        }
+        lbl_visualizarContra.setVisible(false);
+        lbl_visualizarContraConfirmar.setVisible(true);
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusGained
 
     private void jpf_ContraseñaRConfirmarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarFocusLost
         lbl_mensajeRegistro.setVisible(false);
+        lbl_indicadorContraConfirmar.setVisible(false);
+        lbl_indicadorContraConfirmar.setVisible(false);
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusLost
 
     private void jpf_ContraseñaRKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyTyped
@@ -550,6 +574,11 @@ public class Registro extends javax.swing.JFrame {
             lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
             lbl_indicadorContra.setVisible(true);
         }
+        if (jpf_ContraseñaR.getPassword().length == 0) {
+            lbl_visualizarContra.setVisible(false);
+        } else {
+            lbl_visualizarContra.setVisible(true);
+        }
     }//GEN-LAST:event_jpf_ContraseñaRKeyPressed
 
     private void jpf_ContraseñaRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyReleased
@@ -563,7 +592,48 @@ public class Registro extends javax.swing.JFrame {
             lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
             lbl_indicadorContra.setVisible(true);
         }
+        if (jpf_ContraseñaR.getPassword().length == 0) {
+            lbl_visualizarContra.setVisible(false);
+        } else {
+            lbl_visualizarContra.setVisible(true);
+        }
     }//GEN-LAST:event_jpf_ContraseñaRKeyReleased
+
+    private void jpf_ContraseñaRConfirmarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarKeyPressed
+        if (jpf_ContraseñaRConfirmar.getPassword().length >= 8) {
+            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContraConfirmar.setVisible(true);
+
+        } else if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
+            lbl_indicadorContraConfirmar.setVisible(false);
+        } else {
+            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_indicadorContraConfirmar.setVisible(true);
+        }
+        if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
+            lbl_visualizarContraConfirmar.setVisible(false);
+        } else {
+            lbl_visualizarContraConfirmar.setVisible(true);
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyPressed
+
+    private void jpf_ContraseñaRConfirmarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarKeyReleased
+        if (jpf_ContraseñaRConfirmar.getPassword().length >= 8) {
+            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContraConfirmar.setVisible(true);
+
+        } else if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
+            lbl_indicadorContraConfirmar.setVisible(false);
+        } else {
+            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_indicadorContraConfirmar.setVisible(true);
+        }
+        if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
+            lbl_visualizarContraConfirmar.setVisible(false);
+        } else {
+            lbl_visualizarContraConfirmar.setVisible(true);
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyReleased
 
     /**
      * @param args the command line arguments
@@ -595,7 +665,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPasswordField jpf_ContraseñaRConfirmar;
     private javax.swing.JTextField jtf_UsuarioR;
     private javax.swing.JLabel lbl_ImagenRegistrto;
-    private javax.swing.JLabel lbl_IndicadorContraConfirmar;
     private javax.swing.JLabel lbl_IndicadorUser;
     private javax.swing.JLabel lbl_Registrate;
     private javax.swing.JLabel lbl_indicadorContra;
@@ -604,5 +673,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_mensajeRegistro;
     private javax.swing.JLabel lbl_olvideContraseña;
     private javax.swing.JLabel lbl_visualizarContra;
+    private javax.swing.JLabel lbl_visualizarContraConfirmar;
     // End of variables declaration//GEN-END:variables
 }

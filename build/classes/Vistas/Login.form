@@ -85,16 +85,14 @@
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="lbl_ImagenLogin" alignment="0" pref="280" max="32767" attributes="0"/>
                       <Component id="lbl_iniciarSesion" alignment="1" max="32767" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_Iniciar" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbl_olvideContraseña" min="-2" pref="134" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lbl_registro" min="-2" pref="134" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jp_backgroun_password" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jp_background_usuario" max="32767" attributes="0"/>
+                      <Component id="btn_Iniciar" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lbl_olvideContraseña" min="-2" pref="134" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lbl_registro" min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jp_backgroun_password" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jp_background_usuario" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbl_mensajeInicio" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -208,22 +206,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jtf_Contraseña" max="32767" attributes="0"/>
+                      <Component id="jpf_Contraseña" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jtf_Contraseña" min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jpf_Contraseña" alignment="0" pref="33" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jtf_Contrase&#xf1;a">
+            <Component class="javax.swing.JPasswordField" name="jpf_Contrase&#xf1;a">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="eb" green="eb" red="eb" type="rgb"/>
@@ -234,11 +229,9 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="jtf_usuario" noResource="true"/>
-                <Property name="selectionEnd" type="int" value="10"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtf_Contrase&#xf1;aFocusGained"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jpf_Contrase&#xf1;aKeyTyped"/>
               </Events>
             </Component>
           </SubComponents>

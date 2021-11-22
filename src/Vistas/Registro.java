@@ -22,8 +22,8 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
         TextPrompt p = new TextPrompt("Usuario", jtf_UsuarioR);
-        TextPrompt a = new TextPrompt("Contraseña", jtf_ContraseñaR);
-        TextPrompt c = new TextPrompt("Confirmar Contraseña", jtf_ContraseñaRConfirmar);
+        TextPrompt a = new TextPrompt("Contraseña", jpf_ContraseñaR);
+        TextPrompt c = new TextPrompt("Confirmar Contraseña", jpf_ContraseñaRConfirmar);
     }
 
     /**
@@ -37,6 +37,7 @@ public class Registro extends javax.swing.JFrame {
 
         jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jp_Registro = new javax.swing.JPanel();
         btn_Registrar = new javax.swing.JButton();
@@ -44,18 +45,18 @@ public class Registro extends javax.swing.JFrame {
         lbl_ImagenRegistrto = new javax.swing.JLabel();
         lbl_Registrate = new javax.swing.JLabel();
         jp_backgroun_passwordR = new javax.swing.JPanel();
-        jtf_ContraseñaR = new javax.swing.JTextField();
-        lbl_IndicadorContraConfirmar1 = new javax.swing.JLabel();
+        lbl_visualizarContra = new javax.swing.JLabel();
+        jpf_ContraseñaR = new javax.swing.JPasswordField();
         jp_background_usuarioR = new javax.swing.JPanel();
         jtf_UsuarioR = new javax.swing.JTextField();
         lbl_inicioSesion = new javax.swing.JLabel();
         jp_backgroun_passwordR1 = new javax.swing.JPanel();
-        jtf_ContraseñaRConfirmar = new javax.swing.JTextField();
         lbl_IndicadorContraConfirmar = new javax.swing.JLabel();
+        jpf_ContraseñaRConfirmar = new javax.swing.JPasswordField();
         lbl_mensajeRegistro = new javax.swing.JLabel();
         lbl_indicadorContra = new javax.swing.JLabel();
         lbl_IndicadorUser = new javax.swing.JLabel();
-        lbl_indicadorContra1 = new javax.swing.JLabel();
+        lbl_indicadorContraConfirmar = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
@@ -70,6 +71,8 @@ public class Registro extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jPasswordField1.setText("jPasswordField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -81,6 +84,11 @@ public class Registro extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jp_Registro.setBackground(new java.awt.Color(255, 255, 255));
+        jp_Registro.setDoubleBuffered(false);
+        jp_Registro.setFocusable(false);
+        jp_Registro.setName(""); // NOI18N
+        jp_Registro.setRequestFocusEnabled(false);
+        jp_Registro.setVerifyInputWhenFocusTarget(false);
 
         btn_Registrar.setBackground(new java.awt.Color(20, 111, 246));
         btn_Registrar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -126,21 +134,24 @@ public class Registro extends javax.swing.JFrame {
 
         jp_backgroun_passwordR.setBackground(new java.awt.Color(235, 235, 235));
 
-        jtf_ContraseñaR.setBackground(new java.awt.Color(235, 235, 235));
-        jtf_ContraseñaR.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jtf_ContraseñaR.setBorder(null);
-        jtf_ContraseñaR.setName("jtf_usuario"); // NOI18N
-        jtf_ContraseñaR.setSelectionEnd(10);
-        jtf_ContraseñaR.addFocusListener(new java.awt.event.FocusAdapter() {
+        lbl_visualizarContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+
+        jpf_ContraseñaR.setBackground(new java.awt.Color(235, 235, 235));
+        jpf_ContraseñaR.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jpf_ContraseñaR.setBorder(null);
+        jpf_ContraseñaR.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jtf_ContraseñaRFocusGained(evt);
+                jpf_ContraseñaRFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jtf_ContraseñaRFocusLost(evt);
+                jpf_ContraseñaRFocusLost(evt);
             }
         });
-
-        lbl_IndicadorContraConfirmar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+        jpf_ContraseñaR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpf_ContraseñaRKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_backgroun_passwordRLayout = new javax.swing.GroupLayout(jp_backgroun_passwordR);
         jp_backgroun_passwordR.setLayout(jp_backgroun_passwordRLayout);
@@ -148,15 +159,18 @@ public class Registro extends javax.swing.JFrame {
             jp_backgroun_passwordRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_backgroun_passwordRLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtf_ContraseñaR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_IndicadorContraConfirmar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jpf_ContraseñaR, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lbl_visualizarContra, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_backgroun_passwordRLayout.setVerticalGroup(
             jp_backgroun_passwordRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtf_ContraseñaR, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(lbl_IndicadorContraConfirmar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jp_backgroun_passwordRLayout.createSequentialGroup()
+                .addGroup(jp_backgroun_passwordRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_visualizarContra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpf_ContraseñaR, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jp_background_usuarioR.setBackground(new java.awt.Color(235, 235, 235));
@@ -174,6 +188,12 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         jtf_UsuarioR.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtf_UsuarioRKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtf_UsuarioRKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtf_UsuarioRKeyTyped(evt);
             }
@@ -222,37 +242,43 @@ public class Registro extends javax.swing.JFrame {
 
         jp_backgroun_passwordR1.setBackground(new java.awt.Color(235, 235, 235));
 
-        jtf_ContraseñaRConfirmar.setBackground(new java.awt.Color(235, 235, 235));
-        jtf_ContraseñaRConfirmar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jtf_ContraseñaRConfirmar.setBorder(null);
-        jtf_ContraseñaRConfirmar.setName("jtf_usuario"); // NOI18N
-        jtf_ContraseñaRConfirmar.setSelectionEnd(10);
-        jtf_ContraseñaRConfirmar.addFocusListener(new java.awt.event.FocusAdapter() {
+        lbl_IndicadorContraConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+
+        jpf_ContraseñaRConfirmar.setBackground(new java.awt.Color(235, 235, 235));
+        jpf_ContraseñaRConfirmar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jpf_ContraseñaRConfirmar.setBorder(null);
+        jpf_ContraseñaRConfirmar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jtf_ContraseñaRConfirmarFocusGained(evt);
+                jpf_ContraseñaRConfirmarFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jtf_ContraseñaRConfirmarFocusLost(evt);
+                jpf_ContraseñaRConfirmarFocusLost(evt);
             }
         });
-
-        lbl_IndicadorContraConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+        jpf_ContraseñaRConfirmar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpf_ContraseñaRConfirmarKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_backgroun_passwordR1Layout = new javax.swing.GroupLayout(jp_backgroun_passwordR1);
         jp_backgroun_passwordR1.setLayout(jp_backgroun_passwordR1Layout);
         jp_backgroun_passwordR1Layout.setHorizontalGroup(
             jp_backgroun_passwordR1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_backgroun_passwordR1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jtf_ContraseñaRConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(jpf_ContraseñaRConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(lbl_IndicadorContraConfirmar)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jp_backgroun_passwordR1Layout.setVerticalGroup(
             jp_backgroun_passwordR1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_IndicadorContraConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jtf_ContraseñaRConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jp_backgroun_passwordR1Layout.createSequentialGroup()
+                .addGroup(jp_backgroun_passwordR1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_IndicadorContraConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpf_ContraseñaRConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0))
         );
 
         lbl_mensajeRegistro.setBackground(new java.awt.Color(204, 204, 204));
@@ -267,7 +293,7 @@ public class Registro extends javax.swing.JFrame {
 
         lbl_IndicadorUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/check.png"))); // NOI18N
 
-        lbl_indicadorContra1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/remove.png"))); // NOI18N
+        lbl_indicadorContraConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/remove.png"))); // NOI18N
 
         javax.swing.GroupLayout jp_RegistroLayout = new javax.swing.GroupLayout(jp_Registro);
         jp_Registro.setLayout(jp_RegistroLayout);
@@ -277,24 +303,24 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jp_RegistroLayout.createSequentialGroup()
-                        .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbl_mensajeRegistro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_RegistroLayout.createSequentialGroup()
-                                .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbl_inicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btn_Registrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jp_backgroun_passwordR1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jp_background_usuarioR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_Registrate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_ImagenRegistrto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_backgroun_passwordR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_inicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_Registrate, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_ImagenRegistrto, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_RegistroLayout.createSequentialGroup()
+                        .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_mensajeRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_Registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jp_backgroun_passwordR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jp_backgroun_passwordR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jp_background_usuarioR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addGap(10, 10, 10)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_IndicadorUser, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_indicadorContra)
-                    .addComponent(lbl_indicadorContra1))
+                    .addComponent(lbl_indicadorContraConfirmar))
                 .addGap(16, 16, 16))
         );
         jp_RegistroLayout.setVerticalGroup(
@@ -306,30 +332,30 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(lbl_ImagenRegistrto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jp_background_usuarioR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jp_background_usuarioR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_IndicadorUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jp_backgroun_passwordR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_backgroun_passwordR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_indicadorContra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_indicadorContra1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jp_backgroun_passwordR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_indicadorContraConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jp_backgroun_passwordR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(btn_Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jp_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_inicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addComponent(lbl_mensajeRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_olvideContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                    .addComponent(lbl_inicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_mensajeRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
 
         btn_Registrar.getAccessibleContext().setAccessibleParent(this);
 
-        jPanel2.add(jp_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -2, 400, -1));
+        jPanel2.add(jp_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -374,12 +400,15 @@ public class Registro extends javax.swing.JFrame {
     private void jtf_UsuarioRKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyTyped
         int key = evt.getKeyChar();
 
+        if (key == 32) {
+            evt.consume();
+        }
+
         boolean numeros = key >= 48 && key <= 57;
         boolean mayusculas = key >= 65 && key <= 90;
         boolean minusculas = key >= 97 && key <= 122;
-        boolean espacio = key == 32;
 
-        if (!(minusculas || mayusculas || espacio || numeros)) {
+        if (!(minusculas || mayusculas || numeros)) {
             evt.consume();
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyTyped
@@ -402,40 +431,109 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_olvideContraseñaFocusGained
 
     private void jtf_UsuarioRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras<br>y números</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras y números</center></html>");
         lbl_mensajeRegistro.setVisible(true);
-        lbl_IndicadorUser.setVisible(false);
+
+        if (jtf_UsuarioR.getText().length() >= 6) {
+            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_IndicadorUser.setVisible(true);
+        } else if (jtf_UsuarioR.getText().equals("")) {
+            lbl_IndicadorUser.setVisible(false);
+        } else {
+            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_IndicadorUser.setVisible(true);
+        }
+
+        lbl_indicadorContra.setVisible(false);
+        lbl_indicadorContraConfirmar.setVisible(false);
+        lbl_visualizarContra.setVisible(false);
+        lbl_IndicadorContraConfirmar.setVisible(false);
+
         //lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
     }//GEN-LAST:event_jtf_UsuarioRFocusGained
 
     private void jtf_UsuarioRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioRFocusLost
         lbl_mensajeRegistro.setVisible(false);
         lbl_IndicadorUser.setVisible(false);
-        
+
     }//GEN-LAST:event_jtf_UsuarioRFocusLost
 
-    private void jtf_ContraseñaRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_ContraseñaRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras<br> números y símbolos</center></html>");
+    private void jpf_ContraseñaRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRFocusGained
+        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras, números y simbolos</center></html>");
         lbl_mensajeRegistro.setVisible(true);
-        lbl_indicadorContra.setVisible(false);
-    }//GEN-LAST:event_jtf_ContraseñaRFocusGained
 
-    private void jtf_ContraseñaRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_ContraseñaRFocusLost
+        if (jpf_ContraseñaR.getPassword().length >= 8) {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContra.setVisible(true);
+
+        } else if (jpf_ContraseñaR.getPassword().length == 0) {
+            lbl_indicadorContra.setVisible(false);
+        } else {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_indicadorContra.setVisible(true);
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRFocusGained
+
+    private void jpf_ContraseñaRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRFocusLost
         lbl_mensajeRegistro.setVisible(false);
         lbl_indicadorContra.setVisible(false);
-    }//GEN-LAST:event_jtf_ContraseñaRFocusLost
+    }//GEN-LAST:event_jpf_ContraseñaRFocusLost
 
-    private void jtf_ContraseñaRConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_ContraseñaRConfirmarFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 8 o más caracteres con una combinación de letras<br> números y símbolos</center></html>");
+    private void jpf_ContraseñaRConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarFocusGained
+        lbl_mensajeRegistro.setText("<html><center>Ingresa nuevamente tu contraseña</center></html>");
         lbl_mensajeRegistro.setVisible(true);
-        lbl_IndicadorContraConfirmar.setVisible(true);
-        
-    }//GEN-LAST:event_jtf_ContraseñaRConfirmarFocusGained
+    }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusGained
 
-    private void jtf_ContraseñaRConfirmarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_ContraseñaRConfirmarFocusLost
+    private void jpf_ContraseñaRConfirmarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarFocusLost
         lbl_mensajeRegistro.setVisible(false);
-        lbl_IndicadorContraConfirmar.setVisible(true);
-    }//GEN-LAST:event_jtf_ContraseñaRConfirmarFocusLost
+    }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusLost
+
+    private void jpf_ContraseñaRKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyTyped
+        int key = evt.getKeyChar();
+
+        if (key == 32) {
+            evt.consume();
+        }
+
+        if (jpf_ContraseñaR.getPassword().length >= 8) {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_indicadorContra.setVisible(true);
+        } else {
+            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRKeyTyped
+
+    private void jpf_ContraseñaRConfirmarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarKeyTyped
+        int key = evt.getKeyChar();
+
+        if (key == 32) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyTyped
+
+    private void jtf_UsuarioRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyPressed
+        if (jtf_UsuarioR.getText().length() >= 6) {
+            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_IndicadorUser.setVisible(true);
+        } else if (jtf_UsuarioR.getText().equals("")) {
+            lbl_IndicadorUser.setVisible(false);
+        } else {
+            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_IndicadorUser.setVisible(true);
+        }
+    }//GEN-LAST:event_jtf_UsuarioRKeyPressed
+
+    private void jtf_UsuarioRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyReleased
+            if (jtf_UsuarioR.getText().length() >= 6) {
+            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+            lbl_IndicadorUser.setVisible(true);
+        } else if (jtf_UsuarioR.getText().equals("")) {
+            lbl_IndicadorUser.setVisible(false);
+        } else {
+            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+            lbl_IndicadorUser.setVisible(true);
+        }
+    }//GEN-LAST:event_jtf_UsuarioRKeyReleased
 
     /**
      * @param args the command line arguments
@@ -457,23 +555,24 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JButton btn_Registrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel jp_Registro;
     private javax.swing.JPanel jp_backgroun_passwordR;
     private javax.swing.JPanel jp_backgroun_passwordR1;
     private javax.swing.JPanel jp_background_usuarioR;
-    private javax.swing.JTextField jtf_ContraseñaR;
-    private javax.swing.JTextField jtf_ContraseñaRConfirmar;
+    private javax.swing.JPasswordField jpf_ContraseñaR;
+    private javax.swing.JPasswordField jpf_ContraseñaRConfirmar;
     private javax.swing.JTextField jtf_UsuarioR;
     private javax.swing.JLabel lbl_ImagenRegistrto;
     private javax.swing.JLabel lbl_IndicadorContraConfirmar;
-    private javax.swing.JLabel lbl_IndicadorContraConfirmar1;
     private javax.swing.JLabel lbl_IndicadorUser;
     private javax.swing.JLabel lbl_Registrate;
     private javax.swing.JLabel lbl_indicadorContra;
-    private javax.swing.JLabel lbl_indicadorContra1;
+    private javax.swing.JLabel lbl_indicadorContraConfirmar;
     private javax.swing.JLabel lbl_inicioSesion;
     private javax.swing.JLabel lbl_mensajeRegistro;
     private javax.swing.JLabel lbl_olvideContraseña;
+    private javax.swing.JLabel lbl_visualizarContra;
     // End of variables declaration//GEN-END:variables
 }

@@ -84,6 +84,11 @@ public class Login extends javax.swing.JFrame {
         btn_Iniciar.setBorder(null);
         btn_Iniciar.setName("btn_iniciar"); // NOI18N
         btn_Iniciar.setNextFocusableComponent(lbl_olvideContraseña);
+        btn_Iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_IniciarActionPerformed(evt);
+            }
+        });
 
         lbl_olvideContraseña.setBackground(new java.awt.Color(51, 255, 51));
         lbl_olvideContraseña.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -317,7 +322,6 @@ public class Login extends javax.swing.JFrame {
     private void lbl_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_registroMouseClicked
         b.setVisible(true);
         this.setVisible(false);
-        this.enable(false);
 
     }//GEN-LAST:event_lbl_registroMouseClicked
 
@@ -353,16 +357,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_visualizarContraUsuarioMouseClicked
 
     private void jpf_ContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaFocusGained
-    lbl_visualizarContraUsuario.setVisible(true);
+        lbl_visualizarContraUsuario.setVisible(true);
     }//GEN-LAST:event_jpf_ContraseñaFocusGained
 
     private void jpf_ContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaFocusLost
-    lbl_visualizarContraUsuario.setVisible(false);
+        lbl_visualizarContraUsuario.setVisible(false);
     }//GEN-LAST:event_jpf_ContraseñaFocusLost
 
     private void jtf_UsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioFocusGained
-    lbl_visualizarContraUsuario.setVisible(false);
+        lbl_visualizarContraUsuario.setVisible(false);
     }//GEN-LAST:event_jtf_UsuarioFocusGained
+
+    private void btn_IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IniciarActionPerformed
+        
+    }//GEN-LAST:event_btn_IniciarActionPerformed
 
     /**
      * @param args the command line arguments

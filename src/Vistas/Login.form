@@ -146,6 +146,9 @@
               <ComponentRef name="lbl_olvideContrase&#xf1;a"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_IniciarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_olvideContrase&#xf1;a">
           <Properties>

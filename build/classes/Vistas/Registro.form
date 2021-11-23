@@ -277,6 +277,9 @@
                       <Image iconType="3" name="/Recursos/view.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_visualizarContraMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="jpf_Contrase&#xf1;aR">
                   <Properties>
@@ -411,6 +414,9 @@
                       <Image iconType="3" name="/Recursos/view.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_visualizarContraConfirmarMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="jpf_Contrase&#xf1;aRConfirmar">
                   <Properties>

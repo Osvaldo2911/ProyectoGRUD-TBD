@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package Vistas;
+
 import PrincipalM.*;
 import javafx.scene.paint.Color;
 import org.w3c.dom.css.RGBColor;
-
 
 /**
  *
@@ -15,8 +15,9 @@ import org.w3c.dom.css.RGBColor;
  */
 public class Login extends javax.swing.JFrame {
 
-    
     Registro b = new Registro();
+    boolean act3 = false;
+
     /**
      * Creates new form Login
      */
@@ -24,8 +25,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         TextPrompt p = new TextPrompt("Usuario", jtf_Usuario);
         TextPrompt a = new TextPrompt("Contraseña", jpf_Contraseña);
-        
-        
+
     }
 
     /**
@@ -46,6 +46,7 @@ public class Login extends javax.swing.JFrame {
         lbl_iniciarSesion = new javax.swing.JLabel();
         jp_backgroun_password = new javax.swing.JPanel();
         jpf_Contraseña = new javax.swing.JPasswordField();
+        lbl_visualizarContraUsuario = new javax.swing.JLabel();
         jp_background_usuario = new javax.swing.JPanel();
         jtf_Usuario = new javax.swing.JTextField();
         lbl_registro = new javax.swing.JLabel();
@@ -123,9 +124,24 @@ public class Login extends javax.swing.JFrame {
         jpf_Contraseña.setBackground(new java.awt.Color(235, 235, 235));
         jpf_Contraseña.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jpf_Contraseña.setBorder(null);
+        jpf_Contraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jpf_ContraseñaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jpf_ContraseñaFocusLost(evt);
+            }
+        });
         jpf_Contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jpf_ContraseñaKeyTyped(evt);
+            }
+        });
+
+        lbl_visualizarContraUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+        lbl_visualizarContraUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_visualizarContraUsuarioMouseClicked(evt);
             }
         });
 
@@ -135,12 +151,18 @@ public class Login extends javax.swing.JFrame {
             jp_backgroun_passwordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_backgroun_passwordLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpf_Contraseña)
+                .addComponent(jpf_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(lbl_visualizarContraUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jp_backgroun_passwordLayout.setVerticalGroup(
             jp_backgroun_passwordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpf_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_backgroun_passwordLayout.createSequentialGroup()
+                .addGroup(jp_backgroun_passwordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpf_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(lbl_visualizarContraUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         jp_background_usuario.setBackground(new java.awt.Color(235, 235, 235));
@@ -149,6 +171,11 @@ public class Login extends javax.swing.JFrame {
         jtf_Usuario.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_Usuario.setBorder(null);
         jtf_Usuario.setName("jtf_usuario"); // NOI18N
+        jtf_Usuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtf_UsuarioFocusGained(evt);
+            }
+        });
         jtf_Usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtf_UsuarioKeyTyped(evt);
@@ -161,12 +188,12 @@ public class Login extends javax.swing.JFrame {
             jp_background_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_background_usuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtf_Usuario)
-                .addContainerGap())
+                .addComponent(jtf_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
         jp_background_usuarioLayout.setVerticalGroup(
             jp_background_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtf_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+            .addComponent(jtf_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         lbl_registro.setBackground(new java.awt.Color(51, 255, 51));
@@ -206,7 +233,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jp_loginLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jp_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbl_ImagenLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addComponent(lbl_ImagenLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_iniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Iniciar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jp_loginLayout.createSequentialGroup()
@@ -256,7 +283,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbl_olvideContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_olvideContraseñaFocusGained
-        lbl_olvideContraseña.setForeground(new java.awt.Color(0,60,255));
+        lbl_olvideContraseña.setForeground(new java.awt.Color(0, 60, 255));
     }//GEN-LAST:event_lbl_olvideContraseñaFocusGained
 
     private void lbl_olvideContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_olvideContraseñaFocusLost
@@ -264,7 +291,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_olvideContraseñaFocusLost
 
     private void lbl_registroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_registroFocusGained
-        lbl_registro.setForeground(new java.awt.Color(0,60,255));
+        lbl_registro.setForeground(new java.awt.Color(0, 60, 255));
     }//GEN-LAST:event_lbl_registroFocusGained
 
     private void lbl_registroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbl_registroFocusLost
@@ -272,7 +299,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_registroFocusLost
 
     private void lbl_olvideContraseñaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_olvideContraseñaMouseEntered
-        lbl_olvideContraseña.setForeground(new java.awt.Color(0,60,255));
+        lbl_olvideContraseña.setForeground(new java.awt.Color(0, 60, 255));
     }//GEN-LAST:event_lbl_olvideContraseñaMouseEntered
 
     private void lbl_olvideContraseñaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_olvideContraseñaMouseExited
@@ -280,7 +307,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_olvideContraseñaMouseExited
 
     private void lbl_registroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_registroMouseEntered
-        lbl_registro.setForeground(new java.awt.Color(0,60,255));
+        lbl_registro.setForeground(new java.awt.Color(0, 60, 255));
     }//GEN-LAST:event_lbl_registroMouseEntered
 
     private void lbl_registroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_registroMouseExited
@@ -291,44 +318,61 @@ public class Login extends javax.swing.JFrame {
         b.setVisible(true);
         this.setVisible(false);
         this.enable(false);
-        
+
     }//GEN-LAST:event_lbl_registroMouseClicked
 
     private void jtf_UsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioKeyTyped
         int key = evt.getKeyChar();
 
-        if (key == 32) {
+        boolean numeros = key >= 48 && key <= 57;
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas || numeros)) {
             evt.consume();
         }
-    
-    boolean numeros = key >= 48 && key <= 57;
-    boolean mayusculas = key >= 65 && key <= 90;
-    boolean minusculas = key >= 97 && key <= 122;
-            
-     if (!(minusculas || mayusculas ||numeros))
-    {
-        evt.consume();
-    }
-    
+
     }//GEN-LAST:event_jtf_UsuarioKeyTyped
 
     private void jpf_ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaKeyTyped
-                int key = evt.getKeyChar();
-        if (key == 32)
-    {
-        evt.consume();
-    }
+        int key = evt.getKeyChar();
+
+        if (!(key >= 33 && key <= 127)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jpf_ContraseñaKeyTyped
+
+    private void lbl_visualizarContraUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_visualizarContraUsuarioMouseClicked
+        if (act3) {
+            jpf_Contraseña.setEchoChar('•');
+            act3 = false;
+        } else {
+            jpf_Contraseña.setEchoChar((char) 0);
+            act3 = true;
+        }
+    }//GEN-LAST:event_lbl_visualizarContraUsuarioMouseClicked
+
+    private void jpf_ContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaFocusGained
+    lbl_visualizarContraUsuario.setVisible(true);
+    }//GEN-LAST:event_jpf_ContraseñaFocusGained
+
+    private void jpf_ContraseñaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaFocusLost
+    lbl_visualizarContraUsuario.setVisible(false);
+    }//GEN-LAST:event_jpf_ContraseñaFocusLost
+
+    private void jtf_UsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioFocusGained
+    lbl_visualizarContraUsuario.setVisible(false);
+    }//GEN-LAST:event_jtf_UsuarioFocusGained
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        try { 
-        javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); 
-        } catch (Exception ex) { 
-        ex.printStackTrace(); 
+        try {
+            javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         /* Create and display the form */
@@ -353,5 +397,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_mensajeInicio;
     private javax.swing.JLabel lbl_olvideContraseña;
     private javax.swing.JLabel lbl_registro;
+    private javax.swing.JLabel lbl_visualizarContraUsuario;
     // End of variables declaration//GEN-END:variables
 }

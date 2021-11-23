@@ -6,6 +6,7 @@
 package Vistas;
 
 import PrincipalM.*;
+import java.sql.DriverManager;
 import javafx.scene.paint.Color;
 import javax.swing.ImageIcon;
 import org.w3c.dom.css.RGBColor;
@@ -15,6 +16,9 @@ import org.w3c.dom.css.RGBColor;
  * @author osvaldo
  */
 public class Registro extends javax.swing.JFrame {
+
+    boolean act = false;
+    boolean act2 = false;
 
     /**
      * Creates new form Login
@@ -135,6 +139,11 @@ public class Registro extends javax.swing.JFrame {
         jp_backgroun_passwordR.setBackground(new java.awt.Color(235, 235, 235));
 
         lbl_visualizarContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+        lbl_visualizarContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_visualizarContraMouseClicked(evt);
+            }
+        });
 
         jpf_ContraseñaR.setBackground(new java.awt.Color(235, 235, 235));
         jpf_ContraseñaR.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -249,6 +258,11 @@ public class Registro extends javax.swing.JFrame {
         jp_backgroun_passwordR1.setBackground(new java.awt.Color(235, 235, 235));
 
         lbl_visualizarContraConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/view.png"))); // NOI18N
+        lbl_visualizarContraConfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_visualizarContraConfirmarMouseClicked(evt);
+            }
+        });
 
         jpf_ContraseñaRConfirmar.setBackground(new java.awt.Color(235, 235, 235));
         jpf_ContraseñaRConfirmar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -410,15 +424,11 @@ public class Registro extends javax.swing.JFrame {
     private void jtf_UsuarioRKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyTyped
         int key = evt.getKeyChar();
 
-        if (key == 32) {
-            evt.consume();
-        }
-
         boolean numeros = key >= 48 && key <= 57;
         boolean mayusculas = key >= 65 && key <= 90;
         boolean minusculas = key >= 97 && key <= 122;
 
-        if (!(minusculas || mayusculas || numeros)) {
+        if (!(minusculas || mayusculas || numeros )) {
             evt.consume();
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyTyped
@@ -441,17 +451,37 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_olvideContraseñaFocusGained
 
     private void jtf_UsuarioRFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioRFocusGained
-        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras y números</center></html>");
+        lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
         lbl_mensajeRegistro.setVisible(true);
 
         if (jtf_UsuarioR.getText().length() >= 6) {
-            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_IndicadorUser.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            for (int i = 0; i < jtf_UsuarioR.getText().length(); i++) {
+                int a = jtf_UsuarioR.getText().charAt(i);
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0) {
+                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_IndicadorUser.setVisible(true);
+            } else {
+                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_IndicadorUser.setVisible(true);
+            }
+
         } else if (jtf_UsuarioR.getText().equals("")) {
             lbl_IndicadorUser.setVisible(false);
         } else {
-            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_IndicadorUser.setVisible(true);
+            lbl_IndicadorUser.setVisible(false);
         }
 
         lbl_indicadorContra.setVisible(false);
@@ -473,15 +503,40 @@ public class Registro extends javax.swing.JFrame {
         lbl_mensajeRegistro.setVisible(true);
 
         if (jpf_ContraseñaR.getPassword().length >= 8) {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContra.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            int sim = 0;
+            for (int i = 0; i < jpf_ContraseñaR.getPassword().length; i++) {
+                char ar[] = jpf_ContraseñaR.getPassword();
+                int a = ar[i];
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+                if (a >= 33 && a <= 47 || a >= 91 && a <= 96 || a >= 123 && a <= 126) {
+                    sim = sim + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0 && sim > 0) {
+                lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_indicadorContra.setVisible(true);
+            } else {
+                lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_indicadorContra.setVisible(true);
+            }
 
         } else if (jpf_ContraseñaR.getPassword().length == 0) {
             lbl_indicadorContra.setVisible(false);
         } else {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_indicadorContra.setVisible(true);
+            lbl_indicadorContra.setVisible(false);
         }
+
         lbl_visualizarContra.setVisible(true);
         lbl_visualizarContraConfirmar.setVisible(false);
     }//GEN-LAST:event_jpf_ContraseñaRFocusGained
@@ -497,15 +552,40 @@ public class Registro extends javax.swing.JFrame {
         lbl_mensajeRegistro.setVisible(true);
 
         if (jpf_ContraseñaRConfirmar.getPassword().length >= 8) {
-            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContraConfirmar.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            int sim = 0;
+            for (int i = 0; i < jpf_ContraseñaRConfirmar.getPassword().length; i++) {
+                char ar[] = jpf_ContraseñaRConfirmar.getPassword();
+                int a = ar[i];
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+                if (a >= 33 && a <= 47 || a >= 91 && a <= 96 || a >= 123 && a <= 126) {
+                    sim = sim + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0 && sim > 0) {
+                lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_indicadorContraConfirmar.setVisible(true);
+            } else {
+                lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_indicadorContraConfirmar.setVisible(true);
+            }
 
         } else if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
             lbl_indicadorContraConfirmar.setVisible(false);
         } else {
-            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_indicadorContraConfirmar.setVisible(true);
+            lbl_indicadorContraConfirmar.setVisible(false);
         }
+
         lbl_visualizarContra.setVisible(false);
         lbl_visualizarContraConfirmar.setVisible(true);
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusGained
@@ -513,127 +593,258 @@ public class Registro extends javax.swing.JFrame {
     private void jpf_ContraseñaRConfirmarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarFocusLost
         lbl_mensajeRegistro.setVisible(false);
         lbl_indicadorContraConfirmar.setVisible(false);
-        lbl_indicadorContraConfirmar.setVisible(false);
+        lbl_visualizarContraConfirmar.setVisible(false);
+
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarFocusLost
 
     private void jpf_ContraseñaRKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyTyped
         int key = evt.getKeyChar();
 
-        if (key == 32) {
+        if (!(key >= 33 && key <= 127)) {
             evt.consume();
-        }
-
-        if (jpf_ContraseñaR.getPassword().length >= 8) {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContra.setVisible(true);
-        } else {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
         }
     }//GEN-LAST:event_jpf_ContraseñaRKeyTyped
 
     private void jpf_ContraseñaRConfirmarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarKeyTyped
         int key = evt.getKeyChar();
 
-        if (key == 32) {
+        if (!(key >= 33 && key <= 127)) {
             evt.consume();
         }
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyTyped
 
     private void jtf_UsuarioRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyPressed
-        if (jtf_UsuarioR.getText().length() >= 6) {
-            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_IndicadorUser.setVisible(true);
+        if (jtf_UsuarioR.getText().length() >= 8) {
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            for (int i = 0; i < jtf_UsuarioR.getText().length(); i++) {
+                int a = jtf_UsuarioR.getText().charAt(i);
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0) {
+                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_IndicadorUser.setVisible(true);
+            } else {
+                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_IndicadorUser.setVisible(true);
+            }
+
         } else if (jtf_UsuarioR.getText().equals("")) {
             lbl_IndicadorUser.setVisible(false);
         } else {
-            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_IndicadorUser.setVisible(true);
+            lbl_IndicadorUser.setVisible(false);
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyPressed
 
     private void jtf_UsuarioRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyReleased
-        if (jtf_UsuarioR.getText().length() >= 6) {
-            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_IndicadorUser.setVisible(true);
+        if (jtf_UsuarioR.getText().length() >= 8) {
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            for (int i = 0; i < jtf_UsuarioR.getText().length(); i++) {
+                int a = jtf_UsuarioR.getText().charAt(i);
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0) {
+                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_IndicadorUser.setVisible(true);
+            } else {
+                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_IndicadorUser.setVisible(true);
+            }
+
         } else if (jtf_UsuarioR.getText().equals("")) {
             lbl_IndicadorUser.setVisible(false);
         } else {
-            lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_IndicadorUser.setVisible(true);
+            lbl_IndicadorUser.setVisible(false);
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyReleased
 
     private void jpf_ContraseñaRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyPressed
         if (jpf_ContraseñaR.getPassword().length >= 8) {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContra.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            int sim = 0;
+            for (int i = 0; i < jpf_ContraseñaR.getPassword().length; i++) {
+                char ar[] = jpf_ContraseñaR.getPassword();
+                int a = ar[i];
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+                if (a >= 33 && a <= 47 || a >= 91 && a <= 96 || a >= 123 && a <= 126) {
+                    sim = sim + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0 && sim > 0) {
+                lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_indicadorContra.setVisible(true);
+            } else {
+                lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_indicadorContra.setVisible(true);
+            }
 
         } else if (jpf_ContraseñaR.getPassword().length == 0) {
             lbl_indicadorContra.setVisible(false);
         } else {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_indicadorContra.setVisible(true);
-        }
-        if (jpf_ContraseñaR.getPassword().length == 0) {
-            lbl_visualizarContra.setVisible(false);
-        } else {
-            lbl_visualizarContra.setVisible(true);
+            lbl_indicadorContra.setVisible(false);
         }
     }//GEN-LAST:event_jpf_ContraseñaRKeyPressed
 
     private void jpf_ContraseñaRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRKeyReleased
         if (jpf_ContraseñaR.getPassword().length >= 8) {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContra.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            int sim = 0;
+            for (int i = 0; i < jpf_ContraseñaR.getPassword().length; i++) {
+                char ar[] = jpf_ContraseñaR.getPassword();
+                int a = ar[i];
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+                if (a >= 33 && a <= 47 || a >= 91 && a <= 96 || a >= 123 && a <= 126) {
+                    sim = sim + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0 && sim > 0) {
+                lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_indicadorContra.setVisible(true);
+            } else {
+                lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_indicadorContra.setVisible(true);
+            }
 
         } else if (jpf_ContraseñaR.getPassword().length == 0) {
             lbl_indicadorContra.setVisible(false);
         } else {
-            lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_indicadorContra.setVisible(true);
-        }
-        if (jpf_ContraseñaR.getPassword().length == 0) {
-            lbl_visualizarContra.setVisible(false);
-        } else {
-            lbl_visualizarContra.setVisible(true);
+            lbl_indicadorContra.setVisible(false);
         }
     }//GEN-LAST:event_jpf_ContraseñaRKeyReleased
 
     private void jpf_ContraseñaRConfirmarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarKeyPressed
         if (jpf_ContraseñaRConfirmar.getPassword().length >= 8) {
-            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContraConfirmar.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            int sim = 0;
+            for (int i = 0; i < jpf_ContraseñaRConfirmar.getPassword().length; i++) {
+                char ar[] = jpf_ContraseñaRConfirmar.getPassword();
+                int a = ar[i];
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+                if (a >= 33 && a <= 47 || a >= 91 && a <= 96 || a >= 123 && a <= 126) {
+                    sim = sim + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0 && sim > 0) {
+                lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_indicadorContraConfirmar.setVisible(true);
+            } else {
+                lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_indicadorContraConfirmar.setVisible(true);
+            }
 
         } else if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
             lbl_indicadorContraConfirmar.setVisible(false);
         } else {
-            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_indicadorContraConfirmar.setVisible(true);
-        }
-        if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
-            lbl_visualizarContraConfirmar.setVisible(false);
-        } else {
-            lbl_visualizarContraConfirmar.setVisible(true);
+            lbl_indicadorContraConfirmar.setVisible(false);
         }
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyPressed
 
     private void jpf_ContraseñaRConfirmarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpf_ContraseñaRConfirmarKeyReleased
         if (jpf_ContraseñaRConfirmar.getPassword().length >= 8) {
-            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
-            lbl_indicadorContraConfirmar.setVisible(true);
+            int n = 0;
+            int ma = 0;
+            int mi = 0;
+            int sim = 0;
+            for (int i = 0; i < jpf_ContraseñaRConfirmar.getPassword().length; i++) {
+                char ar[] = jpf_ContraseñaRConfirmar.getPassword();
+                int a = ar[i];
+                if (a >= 48 && a <= 57) {
+                    n = n + 1;
+                }
+                if (a >= 65 && a <= 90) {
+                    ma = ma + 1;
+                }
+                if (a >= 97 && a <= 122) {
+                    mi = mi + 1;
+                }
+                if (a >= 33 && a <= 47 || a >= 91 && a <= 96 || a >= 123 && a <= 126) {
+                    sim = sim + 1;
+                }
+            }
+            if (n > 0 && ma > 0 && mi > 0 && sim > 0) {
+                lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
+                lbl_indicadorContraConfirmar.setVisible(true);
+            } else {
+                lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                lbl_indicadorContraConfirmar.setVisible(true);
+            }
 
         } else if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
             lbl_indicadorContraConfirmar.setVisible(false);
         } else {
-            lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
-            lbl_indicadorContraConfirmar.setVisible(true);
-        }
-        if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
-            lbl_visualizarContraConfirmar.setVisible(false);
-        } else {
-            lbl_visualizarContraConfirmar.setVisible(true);
+            lbl_indicadorContraConfirmar.setVisible(false);
         }
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyReleased
+
+    private void lbl_visualizarContraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_visualizarContraMouseClicked
+        if (act) {
+            jpf_ContraseñaR.setEchoChar('•');
+            act = false;
+        } else {
+            jpf_ContraseñaR.setEchoChar((char) 0);
+            act = true;
+        }
+
+    }//GEN-LAST:event_lbl_visualizarContraMouseClicked
+
+    private void lbl_visualizarContraConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_visualizarContraConfirmarMouseClicked
+        if (act2) {
+            jpf_ContraseñaRConfirmar.setEchoChar('•');
+            act2 = false;
+        } else {
+            jpf_ContraseñaRConfirmar.setEchoChar((char) 0);
+            act2 = true;
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_lbl_visualizarContraConfirmarMouseClicked
 
     /**
      * @param args the command line arguments

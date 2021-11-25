@@ -369,7 +369,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_UsuarioFocusGained
 
     private void btn_IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IniciarActionPerformed
-        
+     Inicio inic = new Inicio();
+     inic.setVisible(true);
     }//GEN-LAST:event_btn_IniciarActionPerformed
 
     /**

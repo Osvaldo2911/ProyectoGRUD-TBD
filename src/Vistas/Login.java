@@ -6,8 +6,6 @@
 package Vistas;
 
 import PrincipalM.*;
-import javafx.scene.paint.Color;
-import org.w3c.dom.css.RGBColor;
 
 /**
  *
@@ -95,7 +93,7 @@ public class Login extends javax.swing.JFrame {
         lbl_olvideContraseña.setForeground(new java.awt.Color(20, 111, 246));
         lbl_olvideContraseña.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_olvideContraseña.setText("Olvide mi contraseña");
-        lbl_olvideContraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_olvideContraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbl_olvideContraseña.setName("lbl_olvideContraseña"); // NOI18N
         lbl_olvideContraseña.setNextFocusableComponent(lbl_registro);
         lbl_olvideContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -116,7 +114,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         lbl_ImagenLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_ImagenLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\osvaldo\\Documents\\ProyectoGRUD-TBD\\src\\Recursos\\user.png")); // NOI18N
+        lbl_ImagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/user.png"))); // NOI18N
         lbl_ImagenLogin.setName("lbl_imagenLogin"); // NOI18N
 
         lbl_iniciarSesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -206,7 +204,7 @@ public class Login extends javax.swing.JFrame {
         lbl_registro.setForeground(new java.awt.Color(20, 111, 246));
         lbl_registro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbl_registro.setText("Registrate");
-        lbl_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_registro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbl_registro.setName("lbl_Registro"); // NOI18N
         lbl_registro.setNextFocusableComponent(jtf_Usuario);
         lbl_registro.addFocusListener(new java.awt.event.FocusAdapter() {

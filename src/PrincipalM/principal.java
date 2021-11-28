@@ -5,6 +5,7 @@
  */
 package PrincipalM;
 import Vistas.Login;
+import Conexion.conexion;
 /**
  *
  * @author osvaldo
@@ -17,6 +18,8 @@ public class principal {
     public static void main(String[] args) {
         Login prin = new Login();
         prin.setVisible(true);
+       conexion.getConexion();
+        
     }
     
 }

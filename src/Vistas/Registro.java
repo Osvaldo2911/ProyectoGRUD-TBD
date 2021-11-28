@@ -6,10 +6,7 @@
 package Vistas;
 
 import PrincipalM.*;
-import java.sql.DriverManager;
-import javafx.scene.paint.Color;
 import javax.swing.ImageIcon;
-import org.w3c.dom.css.RGBColor;
 
 /**
  *
@@ -128,7 +125,7 @@ public class Registro extends javax.swing.JFrame {
         });
 
         lbl_ImagenRegistrto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_ImagenRegistrto.setIcon(new javax.swing.ImageIcon("C:\\Users\\osvaldo\\Documents\\ProyectoGRUD-TBD\\src\\Recursos\\user.png")); // NOI18N
+        lbl_ImagenRegistrto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/user.png"))); // NOI18N
         lbl_ImagenRegistrto.setName("lbl_imagenLogin"); // NOI18N
 
         lbl_Registrate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

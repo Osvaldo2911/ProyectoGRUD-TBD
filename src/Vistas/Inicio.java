@@ -232,7 +232,7 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_IdClient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addComponent(jt_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -772,8 +772,18 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_telBajas2ActionPerformed
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        
+        String id = jt_idCliente.getText();
+        String pa = jtf_ap1.getText();
+        String sa = jtf_ap2.getText();
+        String te = jtf_tel.getText();
+        String ty = (String) jcb_tipo.getSelectedItem();
+        String ma = jtf_renta.getText();
+        
         ResultSetTableModel rst = conexion.obtenerRegistros("Select * from user"); //sacar de la BD
         jt_Altas.setModel(rst); // Cargar tabla
+        
+        
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     /**

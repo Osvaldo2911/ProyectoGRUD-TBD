@@ -194,6 +194,9 @@
                   <ComponentRef name="Form"/>
                 </Property>
               </AccessibilityProperties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_RegistrarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_olvideContrase&#xf1;a">
               <Properties>

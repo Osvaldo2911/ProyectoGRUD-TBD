@@ -76,8 +76,42 @@ public class conexion extends Thread {
         } catch (Exception ex) {
             System.out.println(ex.toString());
         }
-
         return rs;
     }
+    
+    public static boolean altaUser(usuario u) {
+        boolean b = false;
+        try {
+            // Procedimiento almacenado
+            String consulta = "insert into user values(?,?)";
+
+            pstm = conexion.prepareStatement(consulta);
+            pstm.setString(1, u.getU());
+            pstm.setString(2, u.getC());
+            pstm.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            b = false;
+        }
+        
+        return b;
+    }
+    
+    public static ResultSetTableModel obtenerRegistros(String consulta){
+        
+        ResultSetTableModel datos = null;
+
+        try {
+	    datos=new ResultSetTableModel(controlador, URL, consulta);
+	} catch (ClassNotFoundException e) {
+            e.printStackTrace();
+	} catch (SQLException e) {
+            e.printStackTrace();
+	}
+        
+	return datos;
+    }
+    
     
 }

@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import Conexion.conexion;
+import Controlador.DAO;
+import Modelo.usuario;
 import PrincipalM.*;
 import javax.swing.ImageIcon;
 
@@ -99,6 +102,11 @@ public class Registro extends javax.swing.JFrame {
         btn_Registrar.setBorder(null);
         btn_Registrar.setName("btn_iniciar"); // NOI18N
         btn_Registrar.setNextFocusableComponent(lbl_olvideContraseña);
+        btn_Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RegistrarActionPerformed(evt);
+            }
+        });
 
         lbl_olvideContraseña.setBackground(new java.awt.Color(51, 255, 51));
         lbl_olvideContraseña.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -405,7 +413,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_inicioSesionMouseEntered
 
     private void lbl_inicioSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_inicioSesionMouseClicked
-
+        dispose();
         new Login().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbl_inicioSesionMouseClicked
@@ -842,6 +850,16 @@ public class Registro extends javax.swing.JFrame {
             act2 = true;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_lbl_visualizarContraConfirmarMouseClicked
+
+    private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
+        usuario us = new usuario("b","b"); 
+        DAO a = new DAO(us);
+        if (a.altaUser()==true) {
+            System.err.println("agrego el usuario");
+        }else{
+            System.err.println("NO agrego el usuario");
+        }
+    }//GEN-LAST:event_btn_RegistrarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,7 +5,15 @@
  */
 package Vistas;
 
+import Conexion.conexion;
+import Controlador.DAO;
+import Modelo.usuario;
 import PrincipalM.*;
+import java.awt.Graphics;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -318,6 +326,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_registroMouseExited
 
     private void lbl_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_registroMouseClicked
+        dispose();
         b.setVisible(true);
         this.setVisible(false);
 
@@ -367,8 +376,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_UsuarioFocusGained
 
     private void btn_IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IniciarActionPerformed
-     Inicio inic = new Inicio();
-     inic.setVisible(true);
+        usuario us = new usuario("a", "a");
+        DAO da = new DAO(us);
+        da.consultaUser();
+        if (da.getU() == null) {
+            System.out.println("Vacio");
+        } else {
+            dispose();
+            Inicio inic = new Inicio();
+            inic.setVisible(true);
+            
+           
+        }
+
+//
+
     }//GEN-LAST:event_btn_IniciarActionPerformed
 
     /**

@@ -385,8 +385,6 @@ public class Login extends javax.swing.JFrame {
             dispose();
             Inicio inic = new Inicio();
             inic.setVisible(true);
-            
-           
         }
 
 //

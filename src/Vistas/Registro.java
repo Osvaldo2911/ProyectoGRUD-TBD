@@ -19,9 +19,9 @@ public class Registro extends javax.swing.JFrame {
 
     boolean act = false;
     boolean act2 = false;
-    String usr;
-    char[] cor;
-    char[] corc;
+    String usr = "";
+    char[] cor = null;
+    char[] corc = null;
 
     /**
      * Creates new form Login
@@ -42,10 +42,15 @@ public class Registro extends javax.swing.JFrame {
 
     public String satext(char[] a) {
         String cadena = "";
-        for (int i = 0; i < a.length; i++) {
-            cadena = cadena + a[i];
+        if (a != null) {
+
+            for (int i = 0; i < a.length; i++) {
+                cadena = cadena + a[i];
+            }
+            return cadena;
         }
         return cadena;
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -484,16 +489,29 @@ public class Registro extends javax.swing.JFrame {
                 }
             }
             if (n > 0 && ma > 0 && mi > 0) {
-                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
-                lbl_IndicadorUser.setVisible(true);
+                usuario us = new usuario(jtf_UsuarioR.getText(), "Prueba");
+                DAO da = new DAO(us);
+                da.userName();
+                if (da.getU() == null) {
+                    lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+                    lbl_IndicadorUser.setVisible(true);
+                    lbl_mensajeRegistro.setText("Nombre de usuario disponible");
+                } else {
+                    lbl_mensajeRegistro.setText("Nombre de usuario no disponible");
+                    lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                    lbl_IndicadorUser.setVisible(true);
+                }
             } else {
                 lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
                 lbl_IndicadorUser.setVisible(true);
+                lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             }
 
         } else if (jtf_UsuarioR.getText().equals("")) {
+            lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             lbl_IndicadorUser.setVisible(false);
         } else {
+            lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             lbl_IndicadorUser.setVisible(false);
         }
 
@@ -506,8 +524,6 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_UsuarioRFocusGained
 
     private void jtf_UsuarioRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtf_UsuarioRFocusLost
-        usr = jtf_UsuarioR.getText();
-
         lbl_mensajeRegistro.setVisible(false);
         lbl_IndicadorUser.setVisible(false);
 
@@ -604,7 +620,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyTyped
 
     private void jtf_UsuarioRKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyPressed
-        if (jtf_UsuarioR.getText().length() >= 8) {
+        if (jtf_UsuarioR.getText().length() >= 6) {
             int n = 0;
             int ma = 0;
             int mi = 0;
@@ -621,23 +637,35 @@ public class Registro extends javax.swing.JFrame {
                 }
             }
             if (n > 0 && ma > 0 && mi > 0) {
-                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
-                lbl_IndicadorUser.setVisible(true);
-                usr = jtf_UsuarioR.getText();
+                usuario us = new usuario(jtf_UsuarioR.getText(), "Prueba");
+                DAO da = new DAO(us);
+                da.userName();
+                if (da.getU() == null) {
+                    lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+                    lbl_IndicadorUser.setVisible(true);
+                    lbl_mensajeRegistro.setText("Nombre de usuario disponible");
+                } else {
+                    lbl_mensajeRegistro.setText("Nombre de usuario no disponible");
+                    lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                    lbl_IndicadorUser.setVisible(true);
+                }
             } else {
                 lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
                 lbl_IndicadorUser.setVisible(true);
+                lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             }
 
         } else if (jtf_UsuarioR.getText().equals("")) {
+            lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             lbl_IndicadorUser.setVisible(false);
         } else {
+            lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             lbl_IndicadorUser.setVisible(false);
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyPressed
 
     private void jtf_UsuarioRKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_UsuarioRKeyReleased
-        if (jtf_UsuarioR.getText().length() >= 8) {
+        if (jtf_UsuarioR.getText().length() >= 6) {
             int n = 0;
             int ma = 0;
             int mi = 0;
@@ -654,18 +682,34 @@ public class Registro extends javax.swing.JFrame {
                 }
             }
             if (n > 0 && ma > 0 && mi > 0) {
-                lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
-                lbl_IndicadorUser.setVisible(true);
-                usr = jtf_UsuarioR.getText();
+                usuario us = new usuario(jtf_UsuarioR.getText(), "Prueba");
+                DAO da = new DAO(us);
+                da.userName();
+                if (da.getU() == null) {
+                    lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/check.png"));
+                    lbl_IndicadorUser.setVisible(true);
+                    lbl_mensajeRegistro.setText("Nombre de usuario disponible");
+                    usr = jtf_UsuarioR.getText();
+                } else {
+                    lbl_mensajeRegistro.setText("Nombre de usuario no disponible");
+                    lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
+                    lbl_IndicadorUser.setVisible(true);
+                }
             } else {
                 lbl_IndicadorUser.setIcon(new ImageIcon("src/Recursos/remove.png"));
                 lbl_IndicadorUser.setVisible(true);
+                usr = "";
+                lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             }
 
         } else if (jtf_UsuarioR.getText().equals("")) {
+            lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             lbl_IndicadorUser.setVisible(false);
+            usr = "";
         } else {
+            lbl_mensajeRegistro.setText("<html><center>Usa 6 o más caracteres con una combinación de letras mayusculas, minusculas y números</center></html>");
             lbl_IndicadorUser.setVisible(false);
+            usr = "";
         }
     }//GEN-LAST:event_jtf_UsuarioRKeyReleased
 
@@ -698,12 +742,15 @@ public class Registro extends javax.swing.JFrame {
             } else {
                 lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
                 lbl_indicadorContra.setVisible(true);
+                cor = null;
             }
 
         } else if (jpf_ContraseñaR.getPassword().length == 0) {
             lbl_indicadorContra.setVisible(false);
+            cor = null;
         } else {
             lbl_indicadorContra.setVisible(false);
+            cor = null;
         }
     }//GEN-LAST:event_jpf_ContraseñaRKeyPressed
 
@@ -736,12 +783,15 @@ public class Registro extends javax.swing.JFrame {
             } else {
                 lbl_indicadorContra.setIcon(new ImageIcon("src/Recursos/remove.png"));
                 lbl_indicadorContra.setVisible(true);
+                cor = null;
             }
 
         } else if (jpf_ContraseñaR.getPassword().length == 0) {
             lbl_indicadorContra.setVisible(false);
+            cor = null;
         } else {
             lbl_indicadorContra.setVisible(false);
+            cor = null;
         }
     }//GEN-LAST:event_jpf_ContraseñaRKeyReleased
 
@@ -767,17 +817,29 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_visualizarContraConfirmarMouseClicked
 
     private void btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegistrarActionPerformed
+        if (cor != null && corc != null && !(usr.equals(""))) {
+            if (satext(cor).equals(satext(corc))) {
+                usuario us = new usuario(usr, satext(cor));
 
-        if (satext(cor).equals(satext(corc))) {
-            usuario us = new usuario(usr, satext(cor));
+                DAO a = new DAO(us);
+                if (a.altaUser() == true) {
+                    System.err.println("Se agrego el usuario ");
+                    cor = null;
+                    corc = null;
+                    usr = "";
 
-            DAO a = new DAO(us);
-            if (a.altaUser() == true) {
-                System.err.println("Se agrego el usuario ");
+                    jtf_UsuarioR.setText("");
+                    jpf_ContraseñaR.setText("");
+                    jpf_ContraseñaRConfirmar.setText("");
+
+                } else {
+                    System.err.println("NO agrego el usuario");
+                }
             } else {
-                System.err.println("NO agrego el usuario");
             }
+
         }
+        System.err.println("Datos vacios : " + "[" + satext(cor) + "][" + satext(corc) + "][" + usr + "]");
 
 
     }//GEN-LAST:event_btn_RegistrarActionPerformed
@@ -786,12 +848,15 @@ public class Registro extends javax.swing.JFrame {
         if (satext(jpf_ContraseñaRConfirmar.getPassword()).equals(satext(jpf_ContraseñaR.getPassword()))) {
             lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/check.png"));
             lbl_indicadorContraConfirmar.setVisible(true);
+            corc = jpf_ContraseñaRConfirmar.getPassword();
         } else {
             lbl_indicadorContraConfirmar.setIcon(new ImageIcon("src/Recursos/remove.png"));
             lbl_indicadorContraConfirmar.setVisible(true);
+            corc = null;
         }
         if (jpf_ContraseñaRConfirmar.getPassword().length == 0) {
             lbl_indicadorContraConfirmar.setVisible(false);
+            corc = null;
         }
     }//GEN-LAST:event_jpf_ContraseñaRConfirmarKeyReleased
 

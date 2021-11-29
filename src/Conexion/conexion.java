@@ -79,6 +79,22 @@ public class conexion extends Thread {
         return rs;
     }
     
+        public static ResultSet consultaUserName(usuario u) {
+
+        try {
+            // Procedimiento almacenado
+            String consulta = "SELECT * from user WHERE us=?";
+
+            pstm = conexion.prepareStatement(consulta);
+            pstm.setString(1, u.getU());
+            rs = pstm.executeQuery();
+
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
+        return rs;
+    }
+    
     public static boolean altaUser(usuario u) {
         boolean b = false;
         try {

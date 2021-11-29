@@ -31,7 +31,7 @@ public class DAO {
     }
 
     public void consultaUser() {
-        
+
         ResultSet rs = conexion.consultaUser(u);
 
         u = null;
@@ -48,7 +48,25 @@ public class DAO {
             e.printStackTrace();
         }
     }
-    
+
+    public void userName() {
+        ResultSet rs = conexion.consultaUserName(u);
+
+        u = null;
+
+        try {
+            if (rs.next()) {
+                do {
+                    u = new usuario(rs.getString(1),"Prueba");
+                } while (rs.next());
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     public boolean altaUser() {
         return conexion.altaUser(u);
     }

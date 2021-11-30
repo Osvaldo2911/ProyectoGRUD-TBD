@@ -1145,21 +1145,21 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jtf_apBajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="jtf_apConsultas" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jtf_ap2Bajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="jtf_ap2Consulta" min="-2" pref="170" max="-2" attributes="0"/>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jtf_telBajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="jtf_telConsultas" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="lbl_preftype3" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="jcb_tipoBajas2" alignment="1" pref="170" max="32767" attributes="0"/>
+                                      <Component id="jcb_tipoConsulta" alignment="1" pref="170" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jtf_rentaBajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jtf_rentaConsulta" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1167,13 +1167,13 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="btn_Bajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="btn_Buscar" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                               <Component id="lbl_IdClientBajas2" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lbl_priApBajas2" alignment="0" pref="170" max="32767" attributes="0"/>
-                                      <Component id="jtf_ID_ClientModificacion1" alignment="0" pref="170" max="32767" attributes="0"/>
+                                      <Component id="jtf_ID_ClientConsulta" alignment="0" pref="170" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                                   <Component id="lbl_segunApBajas2" min="-2" pref="170" max="-2" attributes="0"/>
@@ -1191,7 +1191,7 @@
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lbl_IdClientBajas2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jtf_ID_ClientModificacion1" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jtf_ID_ClientConsulta" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbl_priApBajas2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1200,9 +1200,9 @@
                           </Group>
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jtf_apBajas2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jtf_ap2Bajas2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jtf_telBajas2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jtf_apConsultas" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jtf_ap2Consulta" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jtf_telConsultas" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1211,9 +1211,9 @@
                           </Group>
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jcb_tipoBajas2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jtf_rentaBajas2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="btn_Bajas2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jcb_tipoConsulta" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jtf_rentaConsulta" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="btn_Buscar" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
@@ -1237,7 +1237,7 @@
                     <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtf_apBajas2">
+                <Component class="javax.swing.JTextField" name="jtf_apConsultas">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
@@ -1247,7 +1247,8 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_apBajas2KeyTyped"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_apConsultasKeyReleased"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_apConsultasKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_preftype3">
@@ -1258,7 +1259,7 @@
                     <Property name="text" type="java.lang.String" value="Tipo"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jcb_tipoBajas2">
+                <Component class="javax.swing.JComboBox" name="jcb_tipoConsulta">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="eb" green="eb" red="eb" type="rgb"/>
@@ -1278,6 +1279,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jcb_tipoConsultaItemStateChanged"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -1290,7 +1294,7 @@
                     <Property name="text" type="java.lang.String" value="Apellido paterno"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtf_ap2Bajas2">
+                <Component class="javax.swing.JTextField" name="jtf_ap2Consulta">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
@@ -1300,7 +1304,8 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2Bajas2KeyTyped"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2ConsultaKeyReleased"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2ConsultaKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_MaxRenta3">
@@ -1311,7 +1316,7 @@
                     <Property name="text" type="java.lang.String" value="Maximo de Renta"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtf_rentaBajas2">
+                <Component class="javax.swing.JTextField" name="jtf_rentaConsulta">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
@@ -1321,7 +1326,8 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaBajas2KeyTyped"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaConsultaKeyReleased"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaConsultaKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_TelefonoBajas2">
@@ -1332,7 +1338,7 @@
                     <Property name="text" type="java.lang.String" value="Telefono"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jtf_telBajas2">
+                <Component class="javax.swing.JFormattedTextField" name="jtf_telConsultas">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -1342,11 +1348,12 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telBajas2ActionPerformed"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telBajas2KeyTyped"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telConsultasActionPerformed"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telConsultasKeyReleased"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telConsultasKeyTyped"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_Bajas2">
+                <Component class="javax.swing.JButton" name="btn_Buscar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f6" green="6f" red="14" type="rgb"/>
@@ -1363,10 +1370,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Bajas2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_BuscarActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jtf_ID_ClientModificacion1">
+                <Component class="javax.swing.JTextField" name="jtf_ID_ClientConsulta">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
@@ -1376,7 +1383,8 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientModificacion1KeyTyped"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientConsultaKeyReleased"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientConsultaKeyTyped"/>
                   </Events>
                 </Component>
               </SubComponents>

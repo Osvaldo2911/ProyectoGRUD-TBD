@@ -979,6 +979,9 @@ public class Inicio extends javax.swing.JFrame {
         if (!(numeros)) {
             evt.consume();
         }
+        if (jtf_tel.getText().length() == 10) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jtf_telKeyTyped
 
     private void jtf_rentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaKeyTyped

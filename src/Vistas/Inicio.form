@@ -75,6 +75,9 @@
         </Property>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTabbedPane1FocusGained"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -109,7 +112,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="jPanel1" pref="187" max="32767" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jsp_tablaDatos" min="-2" pref="235" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -224,11 +227,11 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lbl_IdClient" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Component id="jt_idCliente" min="-2" pref="33" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbl_priAp" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_segunAp" min="-2" max="-2" attributes="0"/>
@@ -240,7 +243,7 @@
                               <Component id="jtf_ap2" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="jtf_tel" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbl_preftype" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_MaxRenta" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -251,7 +254,7 @@
                               <Component id="jtf_renta" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="btn_agregar" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -270,7 +273,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Primer Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_ap1">
@@ -282,13 +285,16 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap1KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_preftype">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="PrefType"/>
+                    <Property name="text" type="java.lang.String" value="Tipo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jcb_tipo">
@@ -320,7 +326,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Apellido paterno"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_ap2">
@@ -332,6 +338,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_MaxRenta">
                   <Properties>
@@ -350,6 +359,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_Telefono">
                   <Properties>
@@ -370,6 +382,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_agregar">
@@ -401,6 +414,10 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jt_idClienteActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jt_idClienteKeyTyped"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -539,7 +556,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Primer Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_apBajas">
@@ -551,13 +568,16 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_apBajasKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_preftype1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="PrefType"/>
+                    <Property name="text" type="java.lang.String" value="Tipo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jcb_tipoBajas">
@@ -589,7 +609,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Apellido paterno"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_ap2Bajas">
@@ -601,6 +621,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2BajasKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_MaxRenta1">
                   <Properties>
@@ -619,6 +642,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaBajasKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_TelefonoBajas">
                   <Properties>
@@ -639,6 +665,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telBajasActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telBajasKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_Bajas">
@@ -667,6 +694,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_BajasKeyTyped"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -859,7 +889,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Primer Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_apBajas1">
@@ -871,13 +901,16 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_apBajas1KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_preftype2">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="PrefType"/>
+                    <Property name="text" type="java.lang.String" value="Tipo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jcb_tipoBajas1">
@@ -909,7 +942,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Apellido paterno"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_ap2Bajas1">
@@ -921,6 +954,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2Bajas1KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_MaxRenta2">
                   <Properties>
@@ -939,6 +975,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaBajas1KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_TelefonoBajas1">
                   <Properties>
@@ -959,6 +998,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telBajas1ActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telBajas1KeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_Bajas1">
@@ -972,7 +1012,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="text" type="java.lang.String" value="Modificar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -987,6 +1027,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientModificacionKeyTyped"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1179,7 +1222,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Primer Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Nombre"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_apBajas2">
@@ -1191,13 +1234,16 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_apBajas2KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_preftype3">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="PrefType"/>
+                    <Property name="text" type="java.lang.String" value="Tipo"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jcb_tipoBajas2">
@@ -1229,7 +1275,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
+                    <Property name="text" type="java.lang.String" value="Apellido paterno"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_ap2Bajas2">
@@ -1241,6 +1287,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ap2Bajas2KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_MaxRenta3">
                   <Properties>
@@ -1259,6 +1308,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_rentaBajas2KeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_TelefonoBajas2">
                   <Properties>
@@ -1279,6 +1331,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_telBajas2ActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_telBajas2KeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_Bajas2">
@@ -1292,11 +1345,14 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="text" type="java.lang.String" value="Buscar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Bajas2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtf_ID_ClientModificacion1">
                   <Properties>
@@ -1307,6 +1363,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientModificacion1KeyTyped"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -1,5 +1,6 @@
 package Conexion;
 
+import Modelo.cliente;
 import Modelo.usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -78,8 +79,8 @@ public class conexion extends Thread {
         }
         return rs;
     }
-    
-        public static ResultSet consultaUserName(usuario u) {
+
+    public static ResultSet consultaUserName(usuario u) {
 
         try {
             // Procedimiento almacenado
@@ -94,7 +95,7 @@ public class conexion extends Thread {
         }
         return rs;
     }
-    
+
     public static boolean altaUser(usuario u) {
         boolean b = false;
         try {
@@ -110,24 +111,46 @@ public class conexion extends Thread {
             System.out.println(ex.toString());
             b = false;
         }
-        
+
         return b;
     }
-    
-    public static ResultSetTableModel obtenerRegistros(String consulta){
-        
+
+    public static boolean altaCliente(cliente u) {
+        boolean b = false;
+        try {
+            // Procedimiento almacenado
+            String consulta = "insert into client values(?,?,?,?,?,?)";
+
+            pstm = conexion.prepareStatement(consulta);
+            pstm.setString(1, u.getClientNo());
+            pstm.setString(2, u.getFname());
+            pstm.setString(3, u.getLname());
+            pstm.setString(4, u.getTelNo());
+            pstm.setString(5, u.getPrefType());
+            pstm.setInt(6, u.getMaxRent());
+            pstm.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            b = false;
+        }
+
+        return b;
+    }
+
+    public static ResultSetTableModel obtenerRegistros(String consulta) {
+
         ResultSetTableModel datos = null;
 
         try {
-	    datos=new ResultSetTableModel(controlador, URL, consulta);
-	} catch (ClassNotFoundException e) {
+            datos = new ResultSetTableModel(controlador, URL, consulta);
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-	} catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-	}
-        
-	return datos;
+        }
+
+        return datos;
     }
-    
-    
+
 }

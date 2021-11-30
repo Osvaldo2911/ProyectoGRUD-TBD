@@ -10,14 +10,14 @@ package Modelo;
  * @author osvaldo
  */
 public class cliente {
-int clientNo;
+String clientNo;
 String fname;
 String lname;
 String telNo;
 String prefType;
 int maxRent;
 
-    public cliente(int clientNo, String fname, String lname, String telNo, String prefType, int maxRent) {
+    public cliente(String clientNo, String fname, String lname, String telNo, String prefType, int maxRent) {
         this.clientNo = clientNo;
         this.fname = fname;
         this.lname = lname;
@@ -26,11 +26,11 @@ int maxRent;
         this.maxRent = maxRent;
     }
 
-    public int getClientNo() {
+    public String getClientNo() {
         return clientNo;
     }
 
-    public void setClientNo(int clientNo) {
+    public void setClientNo(String clientNo) {
         this.clientNo = clientNo;
     }
 

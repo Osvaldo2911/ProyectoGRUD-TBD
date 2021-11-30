@@ -6,6 +6,7 @@
 package Controlador;
 
 import Conexion.conexion;
+import Modelo.cliente;
 import Modelo.usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +18,19 @@ import java.sql.SQLException;
 public class DAO {
 
     private usuario u;
+    private cliente c;
+
+    public DAO(cliente c) {
+        this.c = c;
+    }
+
+    public cliente getC() {
+        return c;
+    }
+
+    public void setC(cliente c) {
+        this.c = c;
+    }
 
     public DAO(usuario u) {
         this.u = u;
@@ -69,5 +83,9 @@ public class DAO {
 
     public boolean altaUser() {
         return conexion.altaUser(u);
+    }
+
+    public boolean altaCliente() {
+        return conexion.altaCliente(c);
     }
 }

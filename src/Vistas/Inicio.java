@@ -7,6 +7,9 @@ package Vistas;
 
 import Conexion.ResultSetTableModel;
 import Conexion.conexion;
+import Controlador.DAO;
+import Modelo.cliente;
+import Modelo.usuario;
 
 /**
  *
@@ -19,6 +22,11 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+        jt_Altas.setModel(rst);
+        jt_Altas1.setModel(rst);
+        jt_Altas2.setModel(rst);
+        jt_Altas3.setModel(rst);
     }
 
     /**
@@ -117,6 +125,11 @@ public class Inicio extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jTabbedPane1.setOpaque(true);
+        jTabbedPane1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTabbedPane1FocusGained(evt);
+            }
+        });
 
         jp_altas.setBackground(new java.awt.Color(235, 235, 235));
 
@@ -139,13 +152,18 @@ public class Inicio extends javax.swing.JFrame {
         lbl_IdClient.setText("ID_CLIENT");
 
         lbl_priAp.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_priAp.setText("Primer Apellido");
+        lbl_priAp.setText("Nombre");
 
         jtf_ap1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ap1.setBorder(null);
+        jtf_ap1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ap1KeyTyped(evt);
+            }
+        });
 
         lbl_preftype.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_preftype.setText("PrefType");
+        lbl_preftype.setText("Tipo");
 
         jcb_tipo.setBackground(new java.awt.Color(235, 235, 235));
         jcb_tipo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -154,16 +172,26 @@ public class Inicio extends javax.swing.JFrame {
         jcb_tipo.setOpaque(false);
 
         lbl_segunAp.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_segunAp.setText("Segundo Apellido");
+        lbl_segunAp.setText("Apellido paterno");
 
         jtf_ap2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ap2.setBorder(null);
+        jtf_ap2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ap2KeyTyped(evt);
+            }
+        });
 
         lbl_MaxRenta.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_MaxRenta.setText("Maximo de Renta");
 
         jtf_renta.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_renta.setBorder(null);
+        jtf_renta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_rentaKeyTyped(evt);
+            }
+        });
 
         lbl_Telefono.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_Telefono.setText("Telefono");
@@ -173,6 +201,11 @@ public class Inicio extends javax.swing.JFrame {
         jtf_tel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtf_telActionPerformed(evt);
+            }
+        });
+        jtf_tel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_telKeyTyped(evt);
             }
         });
 
@@ -189,6 +222,16 @@ public class Inicio extends javax.swing.JFrame {
 
         jt_idCliente.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jt_idCliente.setBorder(null);
+        jt_idCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jt_idClienteActionPerformed(evt);
+            }
+        });
+        jt_idCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jt_idClienteKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -230,11 +273,11 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(lbl_IdClient)
                 .addGap(4, 4, 4)
                 .addComponent(jt_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_priAp)
                     .addComponent(lbl_segunAp)
@@ -244,7 +287,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jtf_ap1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_ap2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_tel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_preftype)
                     .addComponent(lbl_MaxRenta))
@@ -253,7 +296,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(jcb_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtf_renta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout jp_altasLayout = new javax.swing.GroupLayout(jp_altas);
@@ -271,7 +314,7 @@ public class Inicio extends javax.swing.JFrame {
             jp_altasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_altasLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jsp_tablaDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -283,13 +326,18 @@ public class Inicio extends javax.swing.JFrame {
         lbl_IdClientBajas.setText("ID_CLIENT");
 
         lbl_priApBajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_priApBajas.setText("Primer Apellido");
+        lbl_priApBajas.setText("Nombre");
 
         jtf_apBajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_apBajas.setBorder(null);
+        jtf_apBajas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_apBajasKeyTyped(evt);
+            }
+        });
 
         lbl_preftype1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_preftype1.setText("PrefType");
+        lbl_preftype1.setText("Tipo");
 
         jcb_tipoBajas.setBackground(new java.awt.Color(235, 235, 235));
         jcb_tipoBajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -298,16 +346,26 @@ public class Inicio extends javax.swing.JFrame {
         jcb_tipoBajas.setOpaque(false);
 
         lbl_segunApBajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_segunApBajas.setText("Segundo Apellido");
+        lbl_segunApBajas.setText("Apellido paterno");
 
         jtf_ap2Bajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ap2Bajas.setBorder(null);
+        jtf_ap2Bajas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ap2BajasKeyTyped(evt);
+            }
+        });
 
         lbl_MaxRenta1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_MaxRenta1.setText("Maximo de Renta");
 
         jtf_rentaBajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_rentaBajas.setBorder(null);
+        jtf_rentaBajas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_rentaBajasKeyTyped(evt);
+            }
+        });
 
         lbl_TelefonoBajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_TelefonoBajas.setText("Telefono");
@@ -319,6 +377,11 @@ public class Inicio extends javax.swing.JFrame {
                 jtf_telBajasActionPerformed(evt);
             }
         });
+        jtf_telBajas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_telBajasKeyTyped(evt);
+            }
+        });
 
         btn_Bajas.setBackground(new java.awt.Color(20, 111, 246));
         btn_Bajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -328,6 +391,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jtf_ID_Bajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ID_Bajas.setBorder(null);
+        jtf_ID_Bajas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ID_BajasKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -437,13 +505,18 @@ public class Inicio extends javax.swing.JFrame {
         lbl_IdClientBajas1.setText("ID_CLIENT");
 
         lbl_priApBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_priApBajas1.setText("Primer Apellido");
+        lbl_priApBajas1.setText("Nombre");
 
         jtf_apBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_apBajas1.setBorder(null);
+        jtf_apBajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_apBajas1KeyTyped(evt);
+            }
+        });
 
         lbl_preftype2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_preftype2.setText("PrefType");
+        lbl_preftype2.setText("Tipo");
 
         jcb_tipoBajas1.setBackground(new java.awt.Color(235, 235, 235));
         jcb_tipoBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -452,16 +525,26 @@ public class Inicio extends javax.swing.JFrame {
         jcb_tipoBajas1.setOpaque(false);
 
         lbl_segunApBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_segunApBajas1.setText("Segundo Apellido");
+        lbl_segunApBajas1.setText("Apellido paterno");
 
         jtf_ap2Bajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ap2Bajas1.setBorder(null);
+        jtf_ap2Bajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ap2Bajas1KeyTyped(evt);
+            }
+        });
 
         lbl_MaxRenta2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_MaxRenta2.setText("Maximo de Renta");
 
         jtf_rentaBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_rentaBajas1.setBorder(null);
+        jtf_rentaBajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_rentaBajas1KeyTyped(evt);
+            }
+        });
 
         lbl_TelefonoBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_TelefonoBajas1.setText("Telefono");
@@ -473,15 +556,25 @@ public class Inicio extends javax.swing.JFrame {
                 jtf_telBajas1ActionPerformed(evt);
             }
         });
+        jtf_telBajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_telBajas1KeyTyped(evt);
+            }
+        });
 
         btn_Bajas1.setBackground(new java.awt.Color(20, 111, 246));
         btn_Bajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         btn_Bajas1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Bajas1.setText("Eliminar");
+        btn_Bajas1.setText("Modificar");
         btn_Bajas1.setBorder(null);
 
         jtf_ID_ClientModificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ID_ClientModificacion.setBorder(null);
+        jtf_ID_ClientModificacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ID_ClientModificacionKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -591,13 +684,18 @@ public class Inicio extends javax.swing.JFrame {
         lbl_IdClientBajas2.setText("ID_CLIENT");
 
         lbl_priApBajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_priApBajas2.setText("Primer Apellido");
+        lbl_priApBajas2.setText("Nombre");
 
         jtf_apBajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_apBajas2.setBorder(null);
+        jtf_apBajas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_apBajas2KeyTyped(evt);
+            }
+        });
 
         lbl_preftype3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_preftype3.setText("PrefType");
+        lbl_preftype3.setText("Tipo");
 
         jcb_tipoBajas2.setBackground(new java.awt.Color(235, 235, 235));
         jcb_tipoBajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -606,16 +704,26 @@ public class Inicio extends javax.swing.JFrame {
         jcb_tipoBajas2.setOpaque(false);
 
         lbl_segunApBajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lbl_segunApBajas2.setText("Segundo Apellido");
+        lbl_segunApBajas2.setText("Apellido paterno");
 
         jtf_ap2Bajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ap2Bajas2.setBorder(null);
+        jtf_ap2Bajas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ap2Bajas2KeyTyped(evt);
+            }
+        });
 
         lbl_MaxRenta3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_MaxRenta3.setText("Maximo de Renta");
 
         jtf_rentaBajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_rentaBajas2.setBorder(null);
+        jtf_rentaBajas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_rentaBajas2KeyTyped(evt);
+            }
+        });
 
         lbl_TelefonoBajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_TelefonoBajas2.setText("Telefono");
@@ -627,15 +735,30 @@ public class Inicio extends javax.swing.JFrame {
                 jtf_telBajas2ActionPerformed(evt);
             }
         });
+        jtf_telBajas2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_telBajas2KeyTyped(evt);
+            }
+        });
 
         btn_Bajas2.setBackground(new java.awt.Color(20, 111, 246));
         btn_Bajas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         btn_Bajas2.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Bajas2.setText("Eliminar");
+        btn_Bajas2.setText("Buscar");
         btn_Bajas2.setBorder(null);
+        btn_Bajas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Bajas2ActionPerformed(evt);
+            }
+        });
 
         jtf_ID_ClientModificacion1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ID_ClientModificacion1.setBorder(null);
+        jtf_ID_ClientModificacion1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtf_ID_ClientModificacion1KeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -772,26 +895,268 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_telBajas2ActionPerformed
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
-        
+
         String id = jt_idCliente.getText();
         String pa = jtf_ap1.getText();
         String sa = jtf_ap2.getText();
         String te = jtf_tel.getText();
         String ty = (String) jcb_tipo.getSelectedItem();
-        String ma = jtf_renta.getText();
-        
-        ResultSetTableModel rst = conexion.obtenerRegistros("Select * from user"); //sacar de la BD
+        String ax = jtf_renta.getText();
+        if (id != "" && pa != "" && sa != "" && te != "" && ty != "Seleccione una opcion" && ax != "") {
+            int ma = Integer.valueOf(jtf_renta.getText());
+            // System.out.println("[id:"+id+"] [pa:"+pa+"] [sa:"+sa+"] [te:"+te+"] [ty:"+ty+"] [ma:"+ma+"]");
+            cliente cl = new cliente(id, pa, sa, te, ty, ma);
+            DAO da = new DAO(cl);
+
+            if (da.altaCliente() == true) {
+                System.out.println("Se agrego el Cliente out");
+
+                jt_idCliente.setText("");
+                jtf_ap1.setText("");
+                jtf_ap2.setText("");
+                jtf_tel.setText("");
+                jcb_tipo.setSelectedIndex(0);
+                jtf_renta.setText("");
+
+            } else {
+                System.err.println("No agrego el Cliente");
+            }
+
+        } else {
+        }
+        ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
         jt_Altas.setModel(rst); // Cargar tabla
-        
-        
+
+
     }//GEN-LAST:event_btn_agregarActionPerformed
+
+    private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
+
+    }//GEN-LAST:event_jTabbedPane1FocusGained
+
+    private void jt_idClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_idClienteKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas || numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jt_idClienteKeyTyped
+
+    private void jtf_ap1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap1KeyTyped
+        int key = evt.getKeyChar();
+
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ap1KeyTyped
+
+    private void jtf_ap2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap2KeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ap2KeyTyped
+
+    private void jt_idClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_idClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jt_idClienteActionPerformed
+
+    private void jtf_telKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_telKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_telKeyTyped
+
+    private void jtf_rentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_rentaKeyTyped
+
+    private void jtf_ID_BajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ID_BajasKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas || numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ID_BajasKeyTyped
+
+    private void jtf_apBajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_apBajasKeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_apBajasKeyTyped
+
+    private void jtf_ap2BajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap2BajasKeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ap2BajasKeyTyped
+
+    private void jtf_telBajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_telBajasKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_telBajasKeyTyped
+
+    private void jtf_rentaBajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaBajasKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_rentaBajasKeyTyped
+
+    private void jtf_ID_ClientModificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ID_ClientModificacionKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas || numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ID_ClientModificacionKeyTyped
+
+    private void jtf_apBajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_apBajas1KeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_apBajas1KeyTyped
+
+    private void jtf_ap2Bajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap2Bajas1KeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ap2Bajas1KeyTyped
+
+    private void jtf_telBajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_telBajas1KeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_telBajas1KeyTyped
+
+    private void jtf_rentaBajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaBajas1KeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_rentaBajas1KeyTyped
+
+    private void jtf_ID_ClientModificacion1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ID_ClientModificacion1KeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas || numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ID_ClientModificacion1KeyTyped
+
+    private void jtf_apBajas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_apBajas2KeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_apBajas2KeyTyped
+
+    private void jtf_ap2Bajas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap2Bajas2KeyTyped
+        int key = evt.getKeyChar();
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+
+        if (!(minusculas || mayusculas)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_ap2Bajas2KeyTyped
+
+    private void jtf_telBajas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_telBajas2KeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_telBajas2KeyTyped
+
+    private void jtf_rentaBajas2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaBajas2KeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!(numeros)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtf_rentaBajas2KeyTyped
+
+    private void btn_Bajas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Bajas2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_Bajas2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
+
         //</editor-fold>
 
         /* Create and display the form */

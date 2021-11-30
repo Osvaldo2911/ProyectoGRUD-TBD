@@ -23,9 +23,6 @@ public class conexion extends Thread {
     public static String texto;
     public static String busqueda;
 
-    public conexion(Object o) {
-    }
-
     private conexion() {
         try {
             controlador = "com.mysql.cj.jdbc.Driver";

@@ -92,4 +92,8 @@ public class DAO {
     public boolean bajaCliente() {
         return conexion.bajaCliente(c);
     }
+
+    public boolean modifiCliente() {
+        return conexion.modificacionCliente(c);
+    }
 }

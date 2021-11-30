@@ -156,6 +156,29 @@ public class conexion extends Thread {
         return b;
     }
 
+    public static boolean modificacionCliente(cliente u) {
+        boolean b = false;
+        try {
+            // Procedimiento almacenado
+            String consulta = "update client set fName=?,IName=?,telNo=?,prefType=?,maxRent=? where ClientNo=?;";
+
+            pstm = conexion.prepareStatement(consulta);
+            pstm.setString(1, u.getFname());
+            pstm.setString(2, u.getLname());
+            pstm.setString(3, u.getTelNo());
+            pstm.setString(4, u.getPrefType());
+            pstm.setInt(5, u.getMaxRent());
+            pstm.setString(6, u.getClientNo());
+            pstm.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            b = false;
+        }
+
+        return b;
+    }
+
     public static ResultSetTableModel obtenerRegistros(String consulta) {
 
         ResultSetTableModel datos = null;

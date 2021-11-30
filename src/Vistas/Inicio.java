@@ -25,8 +25,8 @@ public class Inicio extends javax.swing.JFrame {
         ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
         jt_Altas.setModel(rst);
         jt_Bajas.setModel(rst);
-        jt_Altas2.setModel(rst);
-        jt_Altas3.setModel(rst);
+        jt_Modificacion.setModel(rst);
+        jt_Consultas.setModel(rst);
     }
 
     /**
@@ -79,19 +79,19 @@ public class Inicio extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         lbl_IdClientBajas1 = new javax.swing.JLabel();
         lbl_priApBajas1 = new javax.swing.JLabel();
-        jtf_apBajas1 = new javax.swing.JTextField();
+        jtf_apModificacion = new javax.swing.JTextField();
         lbl_preftype2 = new javax.swing.JLabel();
-        jcb_tipoBajas1 = new javax.swing.JComboBox<>();
+        jcb_tipoModificacion = new javax.swing.JComboBox<>();
         lbl_segunApBajas1 = new javax.swing.JLabel();
-        jtf_ap2Bajas1 = new javax.swing.JTextField();
+        jtf_ap2Modificacion = new javax.swing.JTextField();
         lbl_MaxRenta2 = new javax.swing.JLabel();
-        jtf_rentaBajas1 = new javax.swing.JTextField();
+        jtf_rentaModificacion = new javax.swing.JTextField();
         lbl_TelefonoBajas1 = new javax.swing.JLabel();
-        jtf_telBajas1 = new javax.swing.JFormattedTextField();
-        btn_Bajas1 = new javax.swing.JButton();
+        jtf_telModificacion = new javax.swing.JFormattedTextField();
+        btn_Modificacion = new javax.swing.JButton();
         jtf_ID_ClientModificacion = new javax.swing.JTextField();
         jsp_tablaDatos2 = new javax.swing.JScrollPane();
-        jt_Altas2 = new javax.swing.JTable();
+        jt_Modificacion = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         lbl_IdClientBajas2 = new javax.swing.JLabel();
@@ -108,7 +108,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_Bajas2 = new javax.swing.JButton();
         jtf_ID_ClientModificacion1 = new javax.swing.JTextField();
         jsp_tablaDatos3 = new javax.swing.JScrollPane();
-        jt_Altas3 = new javax.swing.JTable();
+        jt_Consultas = new javax.swing.JTable();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -517,66 +517,71 @@ public class Inicio extends javax.swing.JFrame {
         lbl_priApBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_priApBajas1.setText("Nombre");
 
-        jtf_apBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jtf_apBajas1.setBorder(null);
-        jtf_apBajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtf_apModificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jtf_apModificacion.setBorder(null);
+        jtf_apModificacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtf_apBajas1KeyTyped(evt);
+                jtf_apModificacionKeyTyped(evt);
             }
         });
 
         lbl_preftype2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_preftype2.setText("Tipo");
 
-        jcb_tipoBajas1.setBackground(new java.awt.Color(235, 235, 235));
-        jcb_tipoBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jcb_tipoBajas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion", "Flat", "House" }));
-        jcb_tipoBajas1.setBorder(null);
-        jcb_tipoBajas1.setOpaque(false);
+        jcb_tipoModificacion.setBackground(new java.awt.Color(235, 235, 235));
+        jcb_tipoModificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jcb_tipoModificacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion", "Flat", "House" }));
+        jcb_tipoModificacion.setBorder(null);
+        jcb_tipoModificacion.setOpaque(false);
 
         lbl_segunApBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_segunApBajas1.setText("Apellido paterno");
 
-        jtf_ap2Bajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jtf_ap2Bajas1.setBorder(null);
-        jtf_ap2Bajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtf_ap2Modificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jtf_ap2Modificacion.setBorder(null);
+        jtf_ap2Modificacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtf_ap2Bajas1KeyTyped(evt);
+                jtf_ap2ModificacionKeyTyped(evt);
             }
         });
 
         lbl_MaxRenta2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_MaxRenta2.setText("Maximo de Renta");
 
-        jtf_rentaBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jtf_rentaBajas1.setBorder(null);
-        jtf_rentaBajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtf_rentaModificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jtf_rentaModificacion.setBorder(null);
+        jtf_rentaModificacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtf_rentaBajas1KeyTyped(evt);
+                jtf_rentaModificacionKeyTyped(evt);
             }
         });
 
         lbl_TelefonoBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbl_TelefonoBajas1.setText("Telefono");
 
-        jtf_telBajas1.setBorder(null);
-        jtf_telBajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jtf_telBajas1.addActionListener(new java.awt.event.ActionListener() {
+        jtf_telModificacion.setBorder(null);
+        jtf_telModificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jtf_telModificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtf_telBajas1ActionPerformed(evt);
+                jtf_telModificacionActionPerformed(evt);
             }
         });
-        jtf_telBajas1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtf_telModificacion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtf_telBajas1KeyTyped(evt);
+                jtf_telModificacionKeyTyped(evt);
             }
         });
 
-        btn_Bajas1.setBackground(new java.awt.Color(20, 111, 246));
-        btn_Bajas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btn_Bajas1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Bajas1.setText("Modificar");
-        btn_Bajas1.setBorder(null);
+        btn_Modificacion.setBackground(new java.awt.Color(20, 111, 246));
+        btn_Modificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btn_Modificacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Modificacion.setText("Modificar");
+        btn_Modificacion.setBorder(null);
+        btn_Modificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ModificacionActionPerformed(evt);
+            }
+        });
 
         jtf_ID_ClientModificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ID_ClientModificacion.setBorder(null);
@@ -594,24 +599,24 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jtf_apBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtf_apModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(jtf_ap2Bajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtf_ap2Modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(jtf_telBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtf_telModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lbl_preftype2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcb_tipoBajas1, 0, 170, Short.MAX_VALUE))
+                            .addComponent(jcb_tipoModificacion, 0, 170, Short.MAX_VALUE))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(jtf_rentaBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtf_rentaModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(lbl_MaxRenta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(20, 20, 20)
-                        .addComponent(btn_Bajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_Modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lbl_IdClientBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -637,23 +642,23 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(lbl_TelefonoBajas1))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtf_apBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_ap2Bajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_telBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtf_apModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_ap2Modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_telModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_preftype2)
                     .addComponent(lbl_MaxRenta2))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jcb_tipoBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtf_rentaBajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Bajas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcb_tipoModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_rentaModificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Modificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
 
-        jt_Altas2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jt_Altas2.setModel(new javax.swing.table.DefaultTableModel(
+        jt_Modificacion.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jt_Modificacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -664,8 +669,13 @@ public class Inicio extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jt_Altas2.setGridColor(new java.awt.Color(204, 204, 204));
-        jsp_tablaDatos2.setViewportView(jt_Altas2);
+        jt_Modificacion.setGridColor(new java.awt.Color(204, 204, 204));
+        jt_Modificacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_ModificacionMouseClicked(evt);
+            }
+        });
+        jsp_tablaDatos2.setViewportView(jt_Modificacion);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -836,8 +846,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        jt_Altas3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jt_Altas3.setModel(new javax.swing.table.DefaultTableModel(
+        jt_Consultas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jt_Consultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -848,8 +858,8 @@ public class Inicio extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jt_Altas3.setGridColor(new java.awt.Color(204, 204, 204));
-        jsp_tablaDatos3.setViewportView(jt_Altas3);
+        jt_Consultas.setGridColor(new java.awt.Color(204, 204, 204));
+        jsp_tablaDatos3.setViewportView(jt_Consultas);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -896,9 +906,9 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtf_telBajasActionPerformed
 
-    private void jtf_telBajas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_telBajas1ActionPerformed
+    private void jtf_telModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_telModificacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtf_telBajas1ActionPerformed
+    }//GEN-LAST:event_jtf_telModificacionActionPerformed
 
     private void jtf_telBajas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_telBajas2ActionPerformed
         // TODO add your handling code here:
@@ -928,6 +938,9 @@ public class Inicio extends javax.swing.JFrame {
                 jcb_tipo.setSelectedIndex(0);
                 jtf_renta.setText("");
 
+                ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+                jt_Altas.setModel(rst);
+
             } else {
                 System.err.println("No agrego el Cliente");
             }
@@ -941,7 +954,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
-
+        ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+        jt_Altas.setModel(rst); // Cargar tabla
+        jt_Bajas.setModel(rst); 
+        jt_Modificacion.setModel(rst); 
+        jt_Consultas.setModel(rst); 
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void jt_idClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_idClienteKeyTyped
@@ -1071,7 +1088,7 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtf_ID_ClientModificacionKeyTyped
 
-    private void jtf_apBajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_apBajas1KeyTyped
+    private void jtf_apModificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_apModificacionKeyTyped
         int key = evt.getKeyChar();
         boolean mayusculas = key >= 65 && key <= 90;
         boolean minusculas = key >= 97 && key <= 122;
@@ -1079,9 +1096,9 @@ public class Inicio extends javax.swing.JFrame {
         if (!(minusculas || mayusculas)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jtf_apBajas1KeyTyped
+    }//GEN-LAST:event_jtf_apModificacionKeyTyped
 
-    private void jtf_ap2Bajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap2Bajas1KeyTyped
+    private void jtf_ap2ModificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ap2ModificacionKeyTyped
         int key = evt.getKeyChar();
         boolean mayusculas = key >= 65 && key <= 90;
         boolean minusculas = key >= 97 && key <= 122;
@@ -1089,9 +1106,9 @@ public class Inicio extends javax.swing.JFrame {
         if (!(minusculas || mayusculas)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jtf_ap2Bajas1KeyTyped
+    }//GEN-LAST:event_jtf_ap2ModificacionKeyTyped
 
-    private void jtf_telBajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_telBajas1KeyTyped
+    private void jtf_telModificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_telModificacionKeyTyped
         int key = evt.getKeyChar();
 
         boolean numeros = key >= 48 && key <= 57;
@@ -1099,9 +1116,9 @@ public class Inicio extends javax.swing.JFrame {
         if (!(numeros)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jtf_telBajas1KeyTyped
+    }//GEN-LAST:event_jtf_telModificacionKeyTyped
 
-    private void jtf_rentaBajas1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaBajas1KeyTyped
+    private void jtf_rentaModificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaModificacionKeyTyped
         int key = evt.getKeyChar();
 
         boolean numeros = key >= 48 && key <= 57;
@@ -1109,7 +1126,7 @@ public class Inicio extends javax.swing.JFrame {
         if (!(numeros)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jtf_rentaBajas1KeyTyped
+    }//GEN-LAST:event_jtf_rentaModificacionKeyTyped
 
     private void jtf_ID_ClientModificacion1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_ID_ClientModificacion1KeyTyped
         int key = evt.getKeyChar();
@@ -1182,6 +1199,13 @@ public class Inicio extends javax.swing.JFrame {
         jcb_tipoBajas.setSelectedItem(ti);
         jtf_rentaBajas.setText(re.toString());
 
+        jtf_ID_Bajas.setEnabled(false);
+        jtf_apBajas.setEnabled(false);
+        jtf_ap2Bajas.setEnabled(false);
+        jtf_telBajas.setEnabled(false);
+        jcb_tipoBajas.setEnabled(false);
+        jtf_rentaBajas.setEnabled(false);
+
         // System.out.println(id + "][" + pa + "][" + sa + "][" + te + "][" + ti + "][" + re);
     }//GEN-LAST:event_jt_BajasMouseClicked
 
@@ -1210,7 +1234,7 @@ public class Inicio extends javax.swing.JFrame {
                 jtf_rentaBajas.setText("");
 
                 ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
-                jt_Altas.setModel(rst);
+                jt_Bajas.setModel(rst);
 
             } else {
                 System.err.println("No elimino el Cliente");
@@ -1222,6 +1246,61 @@ public class Inicio extends javax.swing.JFrame {
         ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
         jt_Bajas.setModel(rst);
     }//GEN-LAST:event_btn_BajasActionPerformed
+
+    private void jt_ModificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_ModificacionMouseClicked
+        String id = (String) jt_Modificacion.getValueAt(jt_Modificacion.getSelectedRow(), 0);
+        String pa = (String) jt_Modificacion.getValueAt(jt_Modificacion.getSelectedRow(), 1);
+        String sa = (String) jt_Modificacion.getValueAt(jt_Modificacion.getSelectedRow(), 2);
+        String te = (String) jt_Modificacion.getValueAt(jt_Modificacion.getSelectedRow(), 3);
+        Object ti = jt_Modificacion.getValueAt(jt_Modificacion.getSelectedRow(), 4);
+        Object re = jt_Modificacion.getValueAt(jt_Modificacion.getSelectedRow(), 5);
+
+        jtf_ID_ClientModificacion.setText(id);
+        jtf_ID_ClientModificacion.setEnabled(false);
+        jtf_apModificacion.setText(pa);
+        jtf_ap2Modificacion.setText(sa);
+        jtf_telModificacion.setText(te);
+        jcb_tipoModificacion.setSelectedItem(ti);
+        jtf_rentaModificacion.setText(re.toString());
+    }//GEN-LAST:event_jt_ModificacionMouseClicked
+
+    private void btn_ModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ModificacionActionPerformed
+        String id = jtf_ID_ClientModificacion.getText();
+        String pa = jtf_apModificacion.getText();
+        String sa = jtf_ap2Modificacion.getText();
+        String te = jtf_telModificacion.getText();
+        String ty = (String) jcb_tipoModificacion.getSelectedItem();
+        String ax = jtf_rentaModificacion.getText();
+
+        if (id != "" && pa != "" && sa != "" && te != "" && ty != "Seleccione una opcion" && ax != "") {
+            int ma = Integer.valueOf(jtf_rentaModificacion.getText());
+            // System.out.println("[id:"+id+"] [pa:"+pa+"] [sa:"+sa+"] [te:"+te+"] [ty:"+ty+"] [ma:"+ma+"]");
+            cliente cl = new cliente(id, pa, sa, te, ty, ma);
+            DAO da = new DAO(cl);
+
+            if (da.modifiCliente() == true) {
+                System.err.println("Se modifico el Cliente");
+
+                jtf_ID_ClientModificacion.setText("");
+                jtf_apModificacion.setText("");
+                jtf_ap2Modificacion.setText("");
+                jtf_telModificacion.setText("");
+                jcb_tipoModificacion.setSelectedIndex(0);
+                jtf_rentaModificacion.setText("");
+
+                ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+                jt_Modificacion.setModel(rst);
+
+            } else {
+                System.err.println("No se modifico el Cliente");
+            }
+
+        } else {
+        }
+
+        ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+        jt_Modificacion.setModel(rst);
+    }//GEN-LAST:event_btn_ModificacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1241,8 +1320,8 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Bajas;
-    private javax.swing.JButton btn_Bajas1;
     private javax.swing.JButton btn_Bajas2;
+    private javax.swing.JButton btn_Modificacion;
     private javax.swing.JButton btn_agregar;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
@@ -1256,17 +1335,17 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox<String> jcb_tipo;
     private javax.swing.JComboBox<String> jcb_tipoBajas;
-    private javax.swing.JComboBox<String> jcb_tipoBajas1;
     private javax.swing.JComboBox<String> jcb_tipoBajas2;
+    private javax.swing.JComboBox<String> jcb_tipoModificacion;
     private javax.swing.JPanel jp_altas;
     private javax.swing.JScrollPane jsp_tablaDatos;
     private javax.swing.JScrollPane jsp_tablaDatos1;
     private javax.swing.JScrollPane jsp_tablaDatos2;
     private javax.swing.JScrollPane jsp_tablaDatos3;
     private javax.swing.JTable jt_Altas;
-    private javax.swing.JTable jt_Altas2;
-    private javax.swing.JTable jt_Altas3;
     private javax.swing.JTable jt_Bajas;
+    private javax.swing.JTable jt_Consultas;
+    private javax.swing.JTable jt_Modificacion;
     private javax.swing.JTextField jt_idCliente;
     private javax.swing.JTextField jtf_ID_Bajas;
     private javax.swing.JTextField jtf_ID_ClientModificacion;
@@ -1274,19 +1353,19 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_ap1;
     private javax.swing.JTextField jtf_ap2;
     private javax.swing.JTextField jtf_ap2Bajas;
-    private javax.swing.JTextField jtf_ap2Bajas1;
     private javax.swing.JTextField jtf_ap2Bajas2;
+    private javax.swing.JTextField jtf_ap2Modificacion;
     private javax.swing.JTextField jtf_apBajas;
-    private javax.swing.JTextField jtf_apBajas1;
     private javax.swing.JTextField jtf_apBajas2;
+    private javax.swing.JTextField jtf_apModificacion;
     private javax.swing.JTextField jtf_renta;
     private javax.swing.JTextField jtf_rentaBajas;
-    private javax.swing.JTextField jtf_rentaBajas1;
     private javax.swing.JTextField jtf_rentaBajas2;
+    private javax.swing.JTextField jtf_rentaModificacion;
     private javax.swing.JFormattedTextField jtf_tel;
     private javax.swing.JFormattedTextField jtf_telBajas;
-    private javax.swing.JFormattedTextField jtf_telBajas1;
     private javax.swing.JFormattedTextField jtf_telBajas2;
+    private javax.swing.JFormattedTextField jtf_telModificacion;
     private javax.swing.JLabel lbl_IdClient;
     private javax.swing.JLabel lbl_IdClientBajas;
     private javax.swing.JLabel lbl_IdClientBajas1;

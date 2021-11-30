@@ -71,7 +71,7 @@ public class DAO {
         try {
             if (rs.next()) {
                 do {
-                    u = new usuario(rs.getString(1),"Prueba");
+                    u = new usuario(rs.getString(1), "Prueba");
                 } while (rs.next());
             }
 
@@ -87,5 +87,9 @@ public class DAO {
 
     public boolean altaCliente() {
         return conexion.altaCliente(c);
+    }
+
+    public boolean bajaCliente() {
+        return conexion.bajaCliente(c);
     }
 }

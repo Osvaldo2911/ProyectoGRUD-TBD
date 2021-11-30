@@ -24,7 +24,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
         jt_Altas.setModel(rst);
-        jt_Altas1.setModel(rst);
+        jt_Bajas.setModel(rst);
         jt_Altas2.setModel(rst);
         jt_Altas3.setModel(rst);
     }
@@ -74,7 +74,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_Bajas = new javax.swing.JButton();
         jtf_ID_Bajas = new javax.swing.JTextField();
         jsp_tablaDatos1 = new javax.swing.JScrollPane();
-        jt_Altas1 = new javax.swing.JTable();
+        jt_Bajas = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         lbl_IdClientBajas1 = new javax.swing.JLabel();
@@ -388,6 +388,11 @@ public class Inicio extends javax.swing.JFrame {
         btn_Bajas.setForeground(new java.awt.Color(255, 255, 255));
         btn_Bajas.setText("Eliminar");
         btn_Bajas.setBorder(null);
+        btn_Bajas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BajasActionPerformed(evt);
+            }
+        });
 
         jtf_ID_Bajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jtf_ID_Bajas.setBorder(null);
@@ -463,8 +468,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        jt_Altas1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jt_Altas1.setModel(new javax.swing.table.DefaultTableModel(
+        jt_Bajas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jt_Bajas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -475,8 +480,13 @@ public class Inicio extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jt_Altas1.setGridColor(new java.awt.Color(204, 204, 204));
-        jsp_tablaDatos1.setViewportView(jt_Altas1);
+        jt_Bajas.setGridColor(new java.awt.Color(204, 204, 204));
+        jt_Bajas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_BajasMouseClicked(evt);
+            }
+        });
+        jsp_tablaDatos1.setViewportView(jt_Bajas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1034,6 +1044,9 @@ public class Inicio extends javax.swing.JFrame {
         if (!(numeros)) {
             evt.consume();
         }
+        if (jtf_tel.getText().length() == 10) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jtf_telBajasKeyTyped
 
     private void jtf_rentaBajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtf_rentaBajasKeyTyped
@@ -1154,6 +1167,62 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_Bajas2ActionPerformed
 
+    private void jt_BajasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_BajasMouseClicked
+        String id = (String) jt_Bajas.getValueAt(jt_Bajas.getSelectedRow(), 0);
+        String pa = (String) jt_Bajas.getValueAt(jt_Bajas.getSelectedRow(), 1);
+        String sa = (String) jt_Bajas.getValueAt(jt_Bajas.getSelectedRow(), 2);
+        String te = (String) jt_Bajas.getValueAt(jt_Bajas.getSelectedRow(), 3);
+        Object ti = jt_Bajas.getValueAt(jt_Bajas.getSelectedRow(), 4);
+        Object re = jt_Bajas.getValueAt(jt_Bajas.getSelectedRow(), 5);
+
+        jtf_ID_Bajas.setText(id);
+        jtf_apBajas.setText(pa);
+        jtf_ap2Bajas.setText(sa);
+        jtf_telBajas.setText(te);
+        jcb_tipoBajas.setSelectedItem(ti);
+        jtf_rentaBajas.setText(re.toString());
+
+        // System.out.println(id + "][" + pa + "][" + sa + "][" + te + "][" + ti + "][" + re);
+    }//GEN-LAST:event_jt_BajasMouseClicked
+
+    private void btn_BajasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BajasActionPerformed
+        String id = jtf_ID_Bajas.getText();
+        String pa = jtf_apBajas.getText();
+        String sa = jtf_ap2Bajas.getText();
+        String te = jtf_telBajas.getText();
+        String ty = (String) jcb_tipoBajas.getSelectedItem();
+        String ax = jtf_rentaBajas.getText();
+
+        if (id != "" && pa != "" && sa != "" && te != "" && ty != "Seleccione una opcion" && ax != "") {
+            int ma = Integer.valueOf(jtf_rentaBajas.getText());
+            // System.out.println("[id:"+id+"] [pa:"+pa+"] [sa:"+sa+"] [te:"+te+"] [ty:"+ty+"] [ma:"+ma+"]");
+            cliente cl = new cliente(id, pa, sa, te, ty, ma);
+            DAO da = new DAO(cl);
+
+            if (da.bajaCliente() == true) {
+                System.err.println("Se elimino el Cliente");
+
+                jtf_ID_Bajas.setText("");
+                jtf_apBajas.setText("");
+                jtf_ap2Bajas.setText("");
+                jtf_telBajas.setText("");
+                jcb_tipoBajas.setSelectedIndex(0);
+                jtf_rentaBajas.setText("");
+
+                ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+                jt_Altas.setModel(rst);
+
+            } else {
+                System.err.println("No elimino el Cliente");
+            }
+
+        } else {
+        }
+
+        ResultSetTableModel rst = conexion.obtenerRegistros("Select * from client"); //sacar de la BD
+        jt_Bajas.setModel(rst);
+    }//GEN-LAST:event_btn_BajasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1195,9 +1264,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jsp_tablaDatos2;
     private javax.swing.JScrollPane jsp_tablaDatos3;
     private javax.swing.JTable jt_Altas;
-    private javax.swing.JTable jt_Altas1;
     private javax.swing.JTable jt_Altas2;
     private javax.swing.JTable jt_Altas3;
+    private javax.swing.JTable jt_Bajas;
     private javax.swing.JTextField jt_idCliente;
     private javax.swing.JTextField jtf_ID_Bajas;
     private javax.swing.JTextField jtf_ID_ClientModificacion;

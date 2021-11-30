@@ -138,6 +138,24 @@ public class conexion extends Thread {
         return b;
     }
 
+    public static boolean bajaCliente(cliente u) {
+        boolean b = false;
+        try {
+            // Procedimiento almacenado
+            String consulta = "delete from client where ClientNo=?";
+
+            pstm = conexion.prepareStatement(consulta);
+            pstm.setString(1, u.getClientNo());
+            pstm.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            b = false;
+        }
+
+        return b;
+    }
+
     public static ResultSetTableModel obtenerRegistros(String consulta) {
 
         ResultSetTableModel datos = null;

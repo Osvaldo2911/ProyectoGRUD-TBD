@@ -30,7 +30,7 @@ public class conexion extends Thread {
 
             URL = "jdbc:mysql://localhost:3306/dreamhome";
 
-            conexion = DriverManager.getConnection(URL, "root", "");
+            conexion = DriverManager.getConnection(URL, "osvaldo", "osvaldo");
 
         } catch (ClassNotFoundException e) {
             System.out.println("Error de DRIVER");

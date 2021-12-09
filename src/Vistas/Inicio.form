@@ -109,10 +109,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbl_userNameAppInicio" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <Component id="btn_cerrarSesion" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btn_cerrarSesion" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -122,9 +119,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbl_userNameAppInicio" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="147" max="-2" attributes="0"/>
@@ -156,13 +151,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cerrarSesionActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_userNameAppInicio">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="SansSerif" size="12" style="1"/>
-                </Property>
-              </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
@@ -332,11 +320,6 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lbl_IdClient" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lbl_userNameAppAltas" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jt_idCliente" alignment="0" max="32767" attributes="0"/>
@@ -349,6 +332,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbl_IdClient" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jtf_ap1" min="-2" pref="170" max="-2" attributes="0"/>
                                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -386,14 +370,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lbl_IdClient" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Component id="jt_idCliente" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lbl_userNameAppAltas" min="-2" pref="33" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lbl_IdClient" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Component id="jt_idCliente" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbl_priAp" min="-2" max="-2" attributes="0"/>
@@ -581,13 +560,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jt_idClienteActionPerformed"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jt_idClienteKeyTyped"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_userNameAppAltas">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="SansSerif" size="12" style="1"/>
-                    </Property>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -1412,50 +1384,41 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbl_IdClientBajas2" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lbl_IdClientBajas2" min="-2" pref="107" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lbl_userNameAppConsulta" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="jtf_apConsultas" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jtf_ap2Consulta" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jtf_telConsultas" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="lbl_preftype3" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jcb_tipoConsulta" alignment="1" pref="170" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jtf_apConsultas" min="-2" pref="170" max="-2" attributes="0"/>
                                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jtf_ap2Consulta" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jtf_telConsultas" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jtf_rentaConsulta" min="-2" pref="170" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="lbl_preftype3" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="jcb_tipoConsulta" alignment="1" pref="170" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="jtf_rentaConsulta" min="-2" pref="170" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="lbl_MaxRenta3" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="btn_Buscar" min="-2" pref="170" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lbl_priApBajas2" alignment="0" pref="170" max="32767" attributes="0"/>
-                                              <Component id="jtf_ID_ClientConsulta" alignment="0" pref="170" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="lbl_segunApBajas2" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Component id="lbl_TelefonoBajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lbl_MaxRenta3" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="btn_Buscar" min="-2" pref="170" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbl_priApBajas2" alignment="0" pref="170" max="32767" attributes="0"/>
+                                      <Component id="jtf_ID_ClientConsulta" alignment="0" pref="170" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="lbl_segunApBajas2" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="lbl_TelefonoBajas2" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -1466,14 +1429,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lbl_IdClientBajas2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Component id="jtf_ID_ClientConsulta" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lbl_userNameAppConsulta" min="-2" pref="33" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lbl_IdClientBajas2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Component id="jtf_ID_ClientConsulta" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbl_priApBajas2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1668,13 +1626,6 @@
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientConsultaKeyReleased"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtf_ID_ClientConsultaKeyTyped"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_userNameAppConsulta">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="SansSerif" size="12" style="1"/>
-                    </Property>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

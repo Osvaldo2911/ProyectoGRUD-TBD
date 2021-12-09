@@ -86,7 +86,6 @@ public class Inicio extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
         btn_cerrarSesion = new javax.swing.JButton();
-        lbl_userNameAppInicio = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_ClienteFull = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -110,7 +109,6 @@ public class Inicio extends javax.swing.JFrame {
         jtf_tel = new javax.swing.JFormattedTextField();
         btn_agregar = new javax.swing.JButton();
         jt_idCliente = new javax.swing.JTextField();
-        lbl_userNameAppAltas = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lbl_IdClientBajas = new javax.swing.JLabel();
@@ -163,7 +161,6 @@ public class Inicio extends javax.swing.JFrame {
         jtf_telConsultas = new javax.swing.JFormattedTextField();
         btn_Buscar = new javax.swing.JButton();
         jtf_ID_ClientConsulta = new javax.swing.JTextField();
-        lbl_userNameAppConsulta = new javax.swing.JLabel();
         jsp_tablaDatos3 = new javax.swing.JScrollPane();
         jt_Consultas = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
@@ -209,8 +206,6 @@ public class Inicio extends javax.swing.JFrame {
                 btn_cerrarSesionActionPerformed(evt);
             }
         });
-
-        lbl_userNameAppInicio.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
 
         jt_ClienteFull.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jt_ClienteFull.setModel(new javax.swing.table.DefaultTableModel(
@@ -262,17 +257,13 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_userNameAppInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_cerrarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btn_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_userNameAppInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,8 +380,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        lbl_userNameAppAltas.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -398,10 +387,6 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_IdClient, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_userNameAppAltas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jt_idCliente, javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,6 +397,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(lbl_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_IdClient, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jtf_ap1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
@@ -438,12 +424,9 @@ public class Inicio extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_IdClient)
-                        .addGap(4, 4, 4)
-                        .addComponent(jt_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_userNameAppAltas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lbl_IdClient)
+                .addGap(4, 4, 4)
+                .addComponent(jt_idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_priAp)
@@ -1060,8 +1043,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        lbl_userNameAppConsulta.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1069,52 +1050,43 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_IdClientBajas2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(lbl_IdClientBajas2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_userNameAppConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtf_apConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jtf_ap2Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jtf_telConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbl_preftype3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcb_tipoConsulta, 0, 170, Short.MAX_VALUE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jtf_apConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(jtf_ap2Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jtf_telConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtf_rentaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lbl_preftype3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jcb_tipoConsulta, 0, 170, Short.MAX_VALUE))
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(jtf_rentaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbl_MaxRenta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(20, 20, 20)
-                                .addComponent(btn_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbl_priApBajas2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(jtf_ID_ClientConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
-                                .addGap(20, 20, 20)
-                                .addComponent(lbl_segunApBajas2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(lbl_TelefonoBajas2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_MaxRenta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(btn_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_priApBajas2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jtf_ID_ClientConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addComponent(lbl_segunApBajas2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(lbl_TelefonoBajas2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(lbl_IdClientBajas2)
-                        .addGap(4, 4, 4)
-                        .addComponent(jtf_ID_ClientConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_userNameAppConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lbl_IdClientBajas2)
+                .addGap(4, 4, 4)
+                .addComponent(jtf_ID_ClientConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_priApBajas2)
@@ -1309,11 +1281,7 @@ public class Inicio extends javax.swing.JFrame {
         ResultSetTableModel rstInicioreg = conexion.obtenerRegistros("select * from reg;"); //sacar de la BD
         jt_registro.setModel(rstInicioreg);
 
-        lbl_userNameAppInicio.setText(getN());
-        lbl_userNameAppAltas.setText(getN());
-        lbl_userNameAppBajas.setText(getN());
-        lbl_userNameAppCambios.setText(getN());
-        lbl_userNameAppConsulta.setText(getN());
+        
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void jt_idClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_idClienteKeyTyped
@@ -2147,9 +2115,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_segunApBajas;
     private javax.swing.JLabel lbl_segunApBajas1;
     private javax.swing.JLabel lbl_segunApBajas2;
-    private javax.swing.JLabel lbl_userNameAppAltas;
     private javax.swing.JLabel lbl_userNameAppBajas;
-    private javax.swing.JLabel lbl_userNameAppConsulta;
-    private javax.swing.JLabel lbl_userNameAppInicio;
     // End of variables declaration//GEN-END:variables
 }
